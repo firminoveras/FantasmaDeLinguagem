@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="acentuacao_easy">
+        <item>sofá</item>
+        <item>crachá</item>
+        <item>parabéns</item>
+        <item>jacarés</item>
+        <item>açaí</item>
+        <item>Piauí</item>
+        <item>cipós</item>
+        <item>dominó</item>
+        <item>baú</item>
+        <item>Grajaú</item>
+        <item>álbum</item>
+        <item>fácil</item>
+        <item>réptil</item>
+        <item>éden</item>
+        <item>ímpar</item>
+        <item>vírus</item>
+        <item>sótão</item>
+        <item>tórax</item>
+        <item>túnel</item>
+        <item>júri</item>
+    </string-array>
+    <string-array name="acentuacao_medium">
+        <item>sofá</item>
+        <item>crachá</item>
+        <item>parabéns</item>
+        <item>jacarés</item>
+        <item>açaí</item>
+        <item>Piauí</item>
+        <item>cipós</item>
+        <item>dominó</item>
+        <item>baú</item>
+        <item>Grajaú</item>
+        <item>álbum</item>
+        <item>fácil</item>
+        <item>réptil</item>
+        <item>éden</item>
+        <item>ímpar</item>
+        <item>vírus</item>
+        <item>sótão</item>
+        <item>tórax</item>
+        <item>túnel</item>
+        <item>júri</item>
+    </string-array>
+    <string-array name="acentuacao_hard">
+        <item>sofá</item>
+        <item>crachá</item>
+        <item>parabéns</item>
+        <item>jacarés</item>
+        <item>açaí</item>
+        <item>Piauí</item>
+        <item>cipós</item>
+        <item>dominó</item>
+        <item>baú</item>
+        <item>Grajaú</item>
+        <item>álbum</item>
+        <item>fácil</item>
+        <item>réptil</item>
+        <item>éden</item>
+        <item>ímpar</item>
+        <item>vírus</item>
+        <item>sótão</item>
+        <item>tórax</item>
+        <item>túnel</item>
+        <item>júri</item>
+    </string-array>
+    <string-array name="acentuacao_very_hard">
+        <item>sofá</item>
+        <item>crachá</item>
+        <item>parabéns</item>
+        <item>jacarés</item>
+        <item>açaí</item>
+        <item>Piauí</item>
+        <item>cipós</item>
+        <item>dominó</item>
+        <item>baú</item>
+        <item>Grajaú</item>
+        <item>álbum</item>
+        <item>fácil</item>
+        <item>réptil</item>
+        <item>éden</item>
+        <item>ímpar</item>
+        <item>vírus</item>
+        <item>sótão</item>
+        <item>tórax</item>
+        <item>túnel</item>
+        <item>júri</item>
+    </string-array>
+</resources>

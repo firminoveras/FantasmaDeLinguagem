@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Fantasma de Linguagem</string>
+    <string name="acentuacao_easy_word">Palavra Fácil</string>
+    <string name="acentuacao_medium_word">Palavra Média</string>
+    <string name="acentuacao_hard_word">Palavra Difícil</string>
+    <string name="acentuacao_veryhard_word">Palavra Muito Difícil</string>
+</resources>
