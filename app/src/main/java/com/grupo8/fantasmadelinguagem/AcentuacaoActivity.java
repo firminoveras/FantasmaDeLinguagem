@@ -57,7 +57,7 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acentuacao);
-        
+
         mTextWinPoints = findViewById(R.id.Acentuacao_Pontos);
         mTextRound = findViewById(R.id.Acentuacao_Text_Nivel);
         mTextDifficult = findViewById(R.id.Acentuacao_Text_Nivel_Dificuldade);
@@ -172,7 +172,7 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     
     @Override
     public void onInit(int status) {
-    
+
     }
     
     private void initKeyboard() {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
     <string-array name="acentuacao_easy">
         <item>sofá</item>
         <item>crachá</item>
@@ -23,71 +22,84 @@
         <item>tórax</item>
         <item>túnel</item>
         <item>júri</item>
+        <item>essência</item>
+        <item>mérito</item>
+        <item>síntese</item>
+        <item>ética</item>
+        <item>ordinário</item>
+        <item>mediatário</item>
+        <item>fugaz</item>
+        <item>procrastinar</item>
+        <item>chuchu</item>
+        <item>dominó</item>
+        <item>céptico</item>
+        <item>decrépito</item>
+        <item>honorário</item>
+        <item>árduo</item>
+        <item>ingênuo</item>
     </string-array>
+
     <string-array name="acentuacao_medium">
-        <item>sofá</item>
-        <item>crachá</item>
-        <item>parabéns</item>
-        <item>jacarés</item>
-        <item>açaí</item>
-        <item>Piauí</item>
-        <item>cipós</item>
-        <item>dominó</item>
-        <item>baú</item>
-        <item>Grajaú</item>
-        <item>álbum</item>
-        <item>fácil</item>
-        <item>réptil</item>
-        <item>éden</item>
-        <item>ímpar</item>
-        <item>vírus</item>
-        <item>sótão</item>
-        <item>tórax</item>
+        <item>contemporâneo</item>
+        <item>misógino</item>
+        <item>prodígio</item>
+        <item>circunstância</item>
+        <item>conveniência</item>
+        <item>cominar</item>
+        <item>lauto</item>
+        <item>quimera</item>
+        <item>opróbrio</item>
+        <item>eflúvio</item>
         <item>túnel</item>
-        <item>júri</item>
+        <item>índole</item>
+        <item>convém</item>
+        <item>militância</item>
+        <item>displicência</item>
     </string-array>
+
     <string-array name="acentuacao_hard">
-        <item>sofá</item>
-        <item>crachá</item>
-        <item>parabéns</item>
-        <item>jacarés</item>
-        <item>açaí</item>
-        <item>Piauí</item>
-        <item>cipós</item>
-        <item>dominó</item>
-        <item>baú</item>
-        <item>Grajaú</item>
-        <item>álbum</item>
-        <item>fácil</item>
-        <item>réptil</item>
-        <item>éden</item>
-        <item>ímpar</item>
-        <item>vírus</item>
-        <item>sótão</item>
-        <item>tórax</item>
-        <item>túnel</item>
-        <item>júri</item>
+        <item>cínico</item>
+        <item>condescendência</item>
+        <item>inenarrável</item>
+        <item>esplêndido</item>
+        <item>êxtase</item>
+        <item>abduzir</item>
+        <item>homizio</item>
+        <item>oscular</item>
+        <item>ignóbil</item>
+        <item>exequível</item>
+        <item>verossímil</item>
+        <item>veemência</item>
+        <item>resquício</item>
+        <item>assintomático</item>
+        <item>híbrido</item>
     </string-array>
+
     <string-array name="acentuacao_very_hard">
-        <item>sofá</item>
-        <item>crachá</item>
-        <item>parabéns</item>
-        <item>jacarés</item>
-        <item>açaí</item>
-        <item>Piauí</item>
-        <item>cipós</item>
-        <item>dominó</item>
-        <item>baú</item>
-        <item>Grajaú</item>
-        <item>álbum</item>
-        <item>fácil</item>
-        <item>réptil</item>
-        <item>éden</item>
-        <item>ímpar</item>
-        <item>vírus</item>
-        <item>sótão</item>
-        <item>tórax</item>
-        <item>túnel</item>
-        <item>júri</item>
+        <item>acrimônia</item>
+        <item>efêmero</item>
+        <item>intrínseco</item>
+        <item>escrúpulo</item>
+        <item>inexorável</item>
+        <item>tergiversar</item>
+        <item>vicissitudes</item>
+        <item>empedernido</item>
+        <item>corolário</item>
+        <item>loquaz</item>
+        <item>mixórdia</item>
+        <item>perscrutar</item>
+        <item>concupiscência</item>
+        <item>nevrálgico</item>
+        <item>susceptível</item>
     </string-array>
+
+    <string-array name="dica_acento_agudo">
+    </string-array>
+
+    <string-array name="dica_acento_circunflexo">
+    </string-array>
+
+    <string-array name="dica_acento_til">
+    </string-array>
+
 </resources>

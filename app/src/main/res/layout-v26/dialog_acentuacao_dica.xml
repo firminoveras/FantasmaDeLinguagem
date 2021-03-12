@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Acentuacao_Dica_Root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/teal_200"
+    android:background="@color/green"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText, ContentDescription">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:src="@drawable/ic_book"
+        app:tint="@color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="6dp"
+        android:text="Dica"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/Acentuacao_Dica_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:justificationMode="inter_word"
         android:textColor="@color/white"
+        android:justificationMode="inter_word"
+        android:fontFamily="sans-serif-smallcaps"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -22,6 +40,7 @@
         android:id="@+id/Acentuacao_Dica_Referencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
         android:gravity="end"
         android:textColor="@color/white"
         android:textSize="12sp" />

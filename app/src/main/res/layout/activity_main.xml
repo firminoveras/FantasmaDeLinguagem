@@ -7,10 +7,12 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="12dp"
+    android:background="@color/main_fg2"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText">
 
     <LinearLayout
+        android:elevation="4dp"
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,35 +37,34 @@
                 android:textSize="18sp" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/Splash_Acentuacao_Record"
-            style="@style/acentuacao_end_words_medium"
+        <LinearLayout
+            android:id="@+id/Splash_Acentuacao_Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#5C6BC0"
-            android:drawablePadding="4dp"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:paddingStart="6dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="6dp"
-            android:text="RECORDE: 0 Pontos"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_star"
-            app:drawableTint="@color/white" />
+            android:layout_height="0dp"
+            android:padding="6dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/Splash_Acentuacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:background="@drawable/bg_splash_button_acentuacao_ripple"
-            android:elevation="4dp"
-            android:text="Jogar" />
+            <TextView
+                android:id="@+id/Splash_Acentuacao_Record"
+                style="@style/acentuacao_end_words_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#5C6BC0"
+                android:elevation="4dp"
+                android:text="RECORDE: 0 Pontos"
+                app:drawableStartCompat="@drawable/ic_star"
+                app:drawableTint="@color/white" />
+
+            <Button
+                android:id="@+id/Splash_Acentuacao_Play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_splash_button_acentuacao_ripple"
+                android:elevation="4dp"
+                android:textColor="@color/white"
+                android:text="Jogar" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -79,6 +80,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:elevation="4dp"
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,36 +105,34 @@
                 android:textSize="18sp" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/Splash_Pontuacao_Record"
-            style="@style/acentuacao_end_words_medium"
+        <LinearLayout
+            android:id="@+id/Splash_Pontuacao_Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#5C6BC0"
-            android:drawablePadding="4dp"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:paddingStart="6dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="6dp"
-            android:text="RECORDE: 0 Pontos"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_star"
-            app:drawableTint="@color/white" />
+            android:layout_height="0dp"
+            android:padding="6dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/Splash_Pontuacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:background="@drawable/bg_splash_button"
-            android:backgroundTint="#40000000"
-            android:elevation="4dp"
-            android:text="Jogar" />
+            <TextView
+                android:id="@+id/Splash_Pontuacao_Record"
+                style="@style/acentuacao_end_words_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#5C6BC0"
+                android:elevation="4dp"
+                android:text="RECORDE: 0 Pontos"
+                app:drawableStartCompat="@drawable/ic_star"
+                app:drawableTint="@color/white" />
+
+            <Button
+                android:id="@+id/Splash_Pontuacao_Play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_splash_button_acentuacao_ripple"
+                android:elevation="4dp"
+                android:textColor="@color/white"
+                android:text="Jogar" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -148,6 +148,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:elevation="4dp"
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -172,35 +173,34 @@
                 android:textSize="18sp" />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/Splash_Coerencia_Record"
-            style="@style/acentuacao_end_words_medium"
+        <LinearLayout
+            android:id="@+id/Splash_Coerencia_Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#5C6BC0"
-            android:drawablePadding="4dp"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:paddingStart="6dp"
-            android:paddingTop="6dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="6dp"
-            android:text="RECORDE: 0 Pontos"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_star"
-            app:drawableTint="@color/white" />
+            android:layout_height="0dp"
+            android:padding="6dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/Splash_Coerencia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:background="@drawable/bg_splash_button_acentuacao_ripple"
-            android:elevation="4dp"
-            android:text="Jogar" />
+            <TextView
+                android:id="@+id/Splash_Coerencia_Record"
+                style="@style/acentuacao_end_words_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#5C6BC0"
+                android:elevation="4dp"
+                android:text="RECORDE: 0 Pontos"
+                app:drawableStartCompat="@drawable/ic_star"
+                app:drawableTint="@color/white" />
+
+            <Button
+                android:id="@+id/Splash_Coerencia_Play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_splash_button_acentuacao_ripple"
+                android:elevation="4dp"
+                android:textColor="@color/white"
+                android:text="Jogar" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
