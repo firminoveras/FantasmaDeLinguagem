@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="12dp"
     tools:context=".AcentuacaoActivity"
     tools:ignore="ContentDescription, HardcodedText">
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="22sp"
+        android:layout_marginBottom="12sp"
         android:background="#001122" />
 
     <TextView
@@ -52,17 +52,97 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/Acentuacao_Button_Buy_Tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Acentuacao_Pontos"
+        android:layout_alignBottom="@+id/Acentuacao_Pontos"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="6dp"
+        android:layout_toEndOf="@+id/Acentuacao_Pontos"
+        android:background="@drawable/bg_acentuacao_button_ripple"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Comprar Dica"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Acentuacao_Button_Buy_Tip"
+        android:layout_alignEnd="@+id/Acentuacao_Button_Buy_Tip"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="-12dp"
+        android:background="@drawable/bg_acentuacao_key_bg"
+        android:backgroundTint="@color/red"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="-50 Pontos"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:id="@+id/Acentuacao_Button_Pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/Acentuacao_Pontos"
+        android:layout_alignBottom="@+id/Acentuacao_Pontos"
+        android:layout_alignParentStart="true"
+        android:layout_margin="6dp"
+        android:layout_toStartOf="@+id/Acentuacao_Pontos"
+        android:background="@drawable/bg_acentuacao_button_ripple"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Pular"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Acentuacao_Button_Buy_Tip"
+        android:layout_alignStart="@+id/Acentuacao_Button_Pass"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-12dp"
+        android:background="@drawable/bg_acentuacao_key_bg"
+        android:backgroundTint="@color/red"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="-50 Pontos"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/Acentuacao_Text_Nivel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Acentuacao_Pontos"
-        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="6dp"
         android:gravity="center"
         android:text="Nível 1"
         android:textSize="22sp"
         android:textStyle="bold" />
 
     <TextView
+        android:fontFamily="sans-serif-smallcaps"
         android:id="@+id/Acentuacao_Text_Nivel_Dificuldade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,8 +171,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginBottom="16dp">
+            android:layout_height="148dp">
 
             <ImageView
                 android:id="@+id/Acentuacao_Speak_Button_Back2"
@@ -122,6 +201,21 @@
                 android:src="@drawable/ic_acentuacao_audio"
                 app:tint="@color/acentuacao_bg" />
 
+            <TextView
+                android:id="@+id/Acentuacao_SpreakCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2sp"
+                android:alpha="0"
+                android:background="@drawable/bg_acentuacao_round_text"
+                android:backgroundTint="#EF5350"
+                android:elevation="4dp"
+                android:padding="4dp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
         </FrameLayout>
 
@@ -149,8 +243,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_margin="6dp"
-                android:background="@drawable/bg_acentuacao_texto_resposta"
-                android:backgroundTint="@color/green"
+                android:background="@drawable/bg_acentuacao_texto_button_ripple"
                 android:gravity="center"
                 android:padding="12dp"
                 android:src="@drawable/ic_acentuacao_confirm"
@@ -158,12 +251,14 @@
 
         </FrameLayout>
 
-
         <TextView
             android:id="@+id/Acentuacao_Pontos_Valendo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="-12dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/bg_acentuacao_key_bg"
             android:backgroundTint="@color/green"
             android:elevation="4dp"
@@ -174,22 +269,6 @@
             android:textColor="@color/white"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/Acentuacao_SpreakCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_margin="2sp"
-            android:alpha="0"
-            android:background="@drawable/bg_acentuacao_round_text"
-            android:backgroundTint="#EF5350"
-            android:elevation="4dp"
-            android:padding="4dp"
-            android:text="-50 Pontos"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold" />
 
 
     </LinearLayout>

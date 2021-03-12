@@ -13,4 +13,6 @@
 
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
+    <color name="pontuacao_bg">#FF7043</color>
+    <color name="coerencia_bg">#66BB6A</color>
 </resources>

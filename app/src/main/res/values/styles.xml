@@ -9,4 +9,34 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="acentuacao_end_words_easy">
+        <item name="android:lines">1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/bg_acentuacao_texto_resposta</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:backgroundTint">@color/green</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_columnWeight">1</item>
+    </style>
+    <style name="acentuacao_end_words_medium" parent="acentuacao_end_words_easy">
+        <item name="android:backgroundTint">#FFA726</item>
+    </style>
+    <style name="acentuacao_end_words_hard" parent="acentuacao_end_words_easy">
+        <item name="android:backgroundTint">@color/red</item>
+    </style>
+    <style name="acentuacao_end_words_veryhard" parent="acentuacao_end_words_easy">
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
+
+    <style name="acentuacao_end_points" parent="acentuacao_end_words_easy">
+        <item name="android:background">#00000000</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
 </resources>

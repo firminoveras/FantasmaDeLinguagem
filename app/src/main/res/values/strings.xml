@@ -4,4 +4,5 @@
     <string name="acentuacao_medium_word">Palavra Média</string>
     <string name="acentuacao_hard_word">Palavra Difícil</string>
     <string name="acentuacao_veryhard_word">Palavra Muito Difícil</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque condimentum purus in molestie. Duis ut arcu in lorem dictum auctor vel in enim. Aenean at erat auctor, ullamcorper velit nec, posuere felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, nibh in egestas mattis, augue eros pulvinar est, nec pulvinar lectus odio egestas diam.</string>
 </resources>
