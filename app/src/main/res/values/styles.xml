@@ -39,4 +39,15 @@
         <item name="android:textColor">@color/green</item>
     </style>
 
+    <style name="justified_text">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="coerencia_text" parent="justified_text">
+
+    </style>
+
 </resources>

@@ -1,15 +1,10 @@
 package com.grupo8.fantasmadelinguagem;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.media.MediaPlayer;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -22,6 +17,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.List;
 import java.util.Locale;
@@ -40,7 +39,7 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     private int mPoints = 0;
     private int mRound = 0;
     private int mWinPoints = 200;
-    private int[] mRoundPoints = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private final int[] mRoundPoints = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     private TextView mTextWinPoints;
     private TextView mTextRound;
@@ -57,22 +56,76 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acentuacao);
-
+        
         mTextWinPoints = findViewById(R.id.Acentuacao_Pontos);
         mTextRound = findViewById(R.id.Acentuacao_Text_Nivel);
         mTextDifficult = findViewById(R.id.Acentuacao_Text_Nivel_Dificuldade);
         mRoundProgress = findViewById(R.id.Acentuacao_Progress_Niveis);
         mResposta = findViewById(R.id.Acentuacao_Text_Resposta);
-    
-        mSucessSound =  MediaPlayer.create(this, R.raw.acentuacao_sucess);
-        mFailSound =  MediaPlayer.create(this, R.raw.acentuacao_fail);
-        mBuySound =  MediaPlayer.create(this, R.raw.acentuacao_buy);
-        mPassSound =  MediaPlayer.create(this, R.raw.acentuacao_pass);
+        
+        mSucessSound = MediaPlayer.create(this, R.raw.acentuacao_sucess);
+        mFailSound = MediaPlayer.create(this, R.raw.acentuacao_fail);
+        mBuySound = MediaPlayer.create(this, R.raw.acentuacao_buy);
+        mPassSound = MediaPlayer.create(this, R.raw.acentuacao_pass);
+        
+        mSpeak = new TextToSpeech(this, this);
+        mSpeak.setLanguage(new Locale("pt", "br"));
+        mSpeak.setPitch((float) 0.8);
+        mSpeak.setSpeechRate((float) 0.8);
+        
+        String[] allEasyWords = getResources().getStringArray(R.array.acentuacao_easy);
+        String[] allMediumWords = getResources().getStringArray(R.array.acentuacao_medium);
+        String[] allHardWord = getResources().getStringArray(R.array.acentuacao_hard);
+        String[] allVeryHardWords = getResources().getStringArray(R.array.acentuacao_very_hard);
+        Random random = new Random();
+        List<Integer> indexEasy = random.ints(0, allEasyWords.length).distinct().limit(3).boxed().collect(Collectors.toList());
+        List<Integer> indexMedium = random.ints(0, allMediumWords.length).distinct().limit(3).boxed().collect(Collectors.toList());
+        List<Integer> indexHard = random.ints(0, allHardWord.length).distinct().limit(3).boxed().collect(Collectors.toList());
+        roundWords = new String[]{
+                allEasyWords[indexEasy.get(0)].toUpperCase(),
+                allEasyWords[indexEasy.get(1)].toUpperCase(),
+                allEasyWords[indexEasy.get(2)].toUpperCase(),
+                allMediumWords[indexMedium.get(0)].toUpperCase(),
+                allMediumWords[indexMedium.get(1)].toUpperCase(),
+                allMediumWords[indexMedium.get(2)].toUpperCase(),
+                allHardWord[indexHard.get(0)].toUpperCase(),
+                allHardWord[indexHard.get(1)].toUpperCase(),
+                allHardWord[indexHard.get(2)].toUpperCase(),
+                allVeryHardWords[random.nextInt(allVeryHardWords.length)].toUpperCase()};
+        
+        findViewById(R.id.Acentuacao_Button_Pass).setOnClickListener(v -> {
+            if (mPoints >= 500) {
+                ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(new long[]{50, 100, 100, 300}, -1);
+                mPassSound.start();
+                mPoints -= 500;
+                mTextWinPoints.setText(String.valueOf(mPoints));
+                startNextRound();
+            }
+        });
+        
+        findViewById(R.id.Acentuacao_Button_Buy_Tip).setOnClickListener(v -> {
+            if (mPoints >= 500) {
+                ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(new long[]{50, 100, 100, 100}, -1);
+                mBuySound.start();
+                mPoints -= 500;
+                mTextWinPoints.setText(String.valueOf(mPoints));
+                //TODO: colocar dicas
+                View alertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
+                ((TextView) alertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText(R.string.lorem);
+                ((TextView) alertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText(R.string.ref);
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setView(alertContent);
+                alert.show();
+            }
+        });
         
         Handler handler = new Handler();
         findViewById(R.id.Acentuacao_Speak_Button).setOnClickListener(v -> {
             v.setEnabled(false);
             mSpeak.speak(roundWords[mRound - 1], TextToSpeech.QUEUE_FLUSH, null, null);
+            
+            findViewById(R.id.Acentuacao_Speak_Button_Icon).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_speak_anim));
+            
             if (mWinPoints >= 50 && timer != null) changeWinPoints(-50);
             if (timer == null) {
                 timer = new Timer(false);
@@ -118,61 +171,12 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
         
         initKeyboard();
         
-        mSpeak = new TextToSpeech(this, this);
-        mSpeak.setLanguage(new Locale("pt", "br"));
-        
-        String[] allEasyWords = getResources().getStringArray(R.array.acentuacao_easy);
-        String[] allMediumWords = getResources().getStringArray(R.array.acentuacao_medium);
-        String[] allHardWord = getResources().getStringArray(R.array.acentuacao_hard);
-        String[] allVeryHardWords = getResources().getStringArray(R.array.acentuacao_very_hard);
-        Random random = new Random();
-        List<Integer> indexEasy = random.ints(0, allEasyWords.length).distinct().limit(3).boxed().collect(Collectors.toList());
-        List<Integer> indexMedium = random.ints(0, allMediumWords.length).distinct().limit(3).boxed().collect(Collectors.toList());
-        List<Integer> indexHard = random.ints(0, allHardWord.length).distinct().limit(3).boxed().collect(Collectors.toList());
-        roundWords = new String[]{
-                allEasyWords[indexEasy.get(0)].toUpperCase(),
-                allEasyWords[indexEasy.get(1)].toUpperCase(),
-                allEasyWords[indexEasy.get(2)].toUpperCase(),
-                allMediumWords[indexMedium.get(0)].toUpperCase(),
-                allMediumWords[indexMedium.get(1)].toUpperCase(),
-                allMediumWords[indexMedium.get(2)].toUpperCase(),
-                allHardWord[indexHard.get(0)].toUpperCase(),
-                allHardWord[indexHard.get(1)].toUpperCase(),
-                allHardWord[indexHard.get(2)].toUpperCase(),
-                allVeryHardWords[random.nextInt(allVeryHardWords.length)].toUpperCase()};
-        
-        findViewById(R.id.Acentuacao_Button_Pass).setOnClickListener(v -> {
-            if (mPoints >= 50) {
-                ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(new long[]{50, 100, 100, 300}, -1);
-                mPassSound.start();
-                mPoints -= 50;
-                mTextWinPoints.setText(String.valueOf(mPoints));
-                startNextRound();
-            }
-        });
-        
-        findViewById(R.id.Acentuacao_Button_Buy_Tip).setOnClickListener(v -> {
-            if (mPoints >= 50) {
-                ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(new long[]{50, 100, 100, 100}, -1);
-                mBuySound.start();
-                mPoints -= 50;
-                mTextWinPoints.setText(String.valueOf(mPoints));
-                //TODO: colocar dicas
-                View alertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
-                ((TextView) alertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText(R.string.lorem);
-                ((TextView) alertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText("TESTE, referencia teste, 2021.");
-                AlertDialog.Builder alert = new AlertDialog.Builder(this);
-                alert.setView(alertContent);
-                alert.show();
-            }
-        });
-        
         startNextRound();
     }
     
     @Override
     public void onInit(int status) {
-
+    
     }
     
     private void initKeyboard() {
@@ -191,19 +195,19 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
             String[] variations = {};
             switch (vogal.get()) {
                 case "A":
-                    variations = new String[]{"A", "Á", "Ã", "À", "Ã"};
+                    variations = new String[]{"Á", "Ã", "À", "Â" , "A"};
                     break;
                 case "E":
-                    variations = new String[]{"E", "É", "È"};
+                    variations = new String[]{"Ê", "É", "È", "E"};
                     break;
                 case "I":
-                    variations = new String[]{"I", "Í", "Ì"};
+                    variations = new String[]{"Î", "Í", "Ì", "I"};
                     break;
                 case "O":
-                    variations = new String[]{"O", "Ó", "Õ", "Ò", "Õ"};
+                    variations = new String[]{"Ò", "Ô", "Õ", "Ó", "O"};
                     break;
                 case "U":
-                    variations = new String[]{"U", "Ú", "Ù"};
+                    variations = new String[]{"Ù", "Ú", "Û", "U"};
                     break;
                 case "C":
                     variations = new String[]{"C", "Ç"};
@@ -336,8 +340,8 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word10)).setText(roundWords[9]);
         
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point1)).setText(String.valueOf(mRoundPoints[0]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point2)).setText(String.valueOf(mRoundPoints[0]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point3)).setText(String.valueOf(mRoundPoints[0]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point2)).setText(String.valueOf(mRoundPoints[1]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point3)).setText(String.valueOf(mRoundPoints[2]));
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point4)).setText(String.valueOf(mRoundPoints[3]));
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point5)).setText(String.valueOf(mRoundPoints[4]));
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point6)).setText(String.valueOf(mRoundPoints[5]));
@@ -348,8 +352,10 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
         
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Points)).setText(String.valueOf(mPoints));
         
-        //TODO: tratar isso
-        alertContent.findViewById(R.id.Acentuacao_End_Record).setVisibility(View.VISIBLE);
+        if (mPoints > getSharedPreferences("records", MODE_PRIVATE).getInt("recordAcentuacao", 0)) {
+            alertContent.findViewById(R.id.Acentuacao_End_Record).setVisibility(View.VISIBLE);
+            getSharedPreferences("records", MODE_PRIVATE).edit().putInt("recordAcentuacao", mPoints).apply();
+        }
         
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setView(alertContent);

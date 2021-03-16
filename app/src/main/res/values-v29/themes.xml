@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.FantasmaDeLinguagem" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.FantasmaDeLinguagem" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:screenOrientation">portrait</item>
         <item name="android:windowFullscreen">true</item>
         <item name="colorPrimary">@color/main_bg</item>

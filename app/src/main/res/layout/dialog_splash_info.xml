@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Info_Root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_bg2"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:src="@drawable/ic_info"
+        app:tint="@color/white"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="@string/info_title"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:text="@string/info_header_intro"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="@string/info_intro" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:text="@string/info_header_licences"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_header_icons"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Info_LicenceGoogle"
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="@string/info_icons" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:text="@string/info_header_developers"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/info_developers" />
+
+    <Button
+        android:id="@+id/Info_ButtonGithub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_splash_info_button"
+        android:clickable="true"
+        android:drawableStart="@drawable/ic_github"
+        android:focusable="true"
+        android:paddingStart="8dp"
+        android:paddingEnd="36dp"
+        android:text="@string/info_button_github"
+        android:textColor="@color/main_bg2"
+        app:drawableTint="@color/main_bg2" />
+
+</LinearLayout>
