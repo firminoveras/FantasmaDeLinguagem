@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         int recordPontuacao = getSharedPreferences("records", MODE_PRIVATE).getInt("recordPontuacao", 0);
         int recordCoerencia = getSharedPreferences("records", MODE_PRIVATE).getInt("recordCoerencia", 0);
         
-        ((TextView) findViewById(R.id.Splash_Acentuacao_Record)).setText(String.format(Locale.getDefault(), "RECORDE: %d Pontos", recordAcentuacao));
-        ((TextView) findViewById(R.id.Splash_Pontuacao_Record)).setText(String.format(Locale.getDefault(), "RECORDE: %d Pontos", recordPontuacao));
-        ((TextView) findViewById(R.id.Splash_Coerencia_Record)).setText(String.format(Locale.getDefault(), "RECORDE: %d Pontos", recordCoerencia));
+        ((TextView) findViewById(R.id.Splash_Acentuacao_Record)).setText(String.format(Locale.getDefault(), "%d Pontos", recordAcentuacao));
+        ((TextView) findViewById(R.id.Splash_Pontuacao_Record)).setText(String.format(Locale.getDefault(), "%d Pontos", recordPontuacao));
+        ((TextView) findViewById(R.id.Splash_Coerencia_Record)).setText(String.format(Locale.getDefault(), "%d Pontos", recordCoerencia));
     }
 }

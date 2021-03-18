@@ -4,7 +4,7 @@
     <dimen name="acencuatao_key_size">48dp</dimen>
     <dimen name="acencuatao_key_margin">4dp</dimen>
     <dimen name="acentuacao_text_size">16sp</dimen>
-    <dimen name="Splash_Game_Layout_Max_Heigth">108dp</dimen>
+    <dimen name="Splash_Game_Layout_Max_Heigth">94dp</dimen>
     <dimen name="box_inset_layout_padding">0dp</dimen>
     <dimen name="inner_frame_layout_padding">5dp</dimen>
     <dimen name="coerencia_words_text_size">12sp</dimen>

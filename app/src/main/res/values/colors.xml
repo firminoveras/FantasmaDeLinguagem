@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="main_bg">#7E57C2</color>
-    <color name="main_fg">#B39DDB</color>
-    <color name="main_bg2">#5C6BC0</color>
-    <color name="main_fg2">#9FA8DA</color>
 
-    <color name="acentuacao_bg">#26C6DA</color>
-    <color name="acentuacao_fg">#80DEEA</color>
+    <color name="background">#7E57C2</color>
+    <color name="background_light">#B39DDB</color>
+    <color name="foreground">#5C6BC0</color>
+    <color name="foreground_light">#9FA8DA</color>
 
-    <color name="pontuacao_bg">#FF7043</color>
-    <color name="pontuacao_fg">#FFAB91</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 
-
-    <color name="coerencia_bg">#7E57C2</color>
-    <color name="coerencia_fg">#EDE7F6</color>
-
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
-    <color name="red">#EF5350</color>
-    <color name="green">#4CAF50</color>
+    <color name="red">#E57373</color>
+    <color name="green">#66BB6A</color>
 
 </resources>

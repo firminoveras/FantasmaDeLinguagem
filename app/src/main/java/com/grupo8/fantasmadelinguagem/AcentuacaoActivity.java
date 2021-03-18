@@ -325,6 +325,8 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     }
     
     private void endGame(boolean win) {
+        findViewById(R.id.Acentuacao_Keyboard_Confirm).setEnabled(false);
+        
         View alertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_end_game, findViewById(R.id.Acentuacao_End_Root));
         
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Text)).setText(win ? "Você chegou até o final!" : "Não foi dessa vez!");

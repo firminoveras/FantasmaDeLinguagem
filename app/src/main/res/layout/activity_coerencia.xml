@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/coerencia_fg"
+    android:background="@color/white"
     android:gravity="center_horizontal"
     android:padding="12dp"
     tools:context=".CoerenciaActivity"
@@ -18,8 +18,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="6dp"
-        android:background="@drawable/bg_coerencia_button_ripple"
-        android:backgroundTint="@color/coerencia_bg"
+        android:background="@drawable/bg_button_square_ripple"
+        android:backgroundTint="@color/background"
         android:gravity="center"
         android:minWidth="120dp"
         android:padding="6dp"
@@ -35,8 +35,8 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="-16dp"
-        android:background="@drawable/bg_coerencia_button_ripple"
-        android:backgroundTint="@color/main_fg"
+        android:background="@drawable/bg_button_square_ripple"
+        android:backgroundTint="@color/background_light"
         android:elevation="4dp"
         android:gravity="center"
         android:padding="6dp"
@@ -78,7 +78,7 @@
         android:layout_marginEnd="24dp"
         android:max="5"
         android:progress="1"
-        android:progressTint="@color/coerencia_bg" />
+        android:progressTint="@color/background" />
 
 
     <ScrollView
@@ -89,7 +89,7 @@
         android:layout_below="@+id/Coerencia_Progress_Niveis"
         android:layout_margin="6dp"
         android:background="@drawable/bg_splash_button"
-        android:backgroundTint="@color/coerencia_bg"
+        android:backgroundTint="@color/background"
         android:gravity="center">
 
         <LinearLayout
@@ -131,7 +131,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:background="@drawable/bg_splash_button"
-        android:backgroundTint="@color/main_bg2"
+        android:backgroundTint="@color/foreground"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -166,22 +166,22 @@
             android:layout_width="280dp"
             android:layout_height="280dp"
             android:layout_gravity="center"
-            android:src="@drawable/acentuacao_back_circle"
+            android:src="@drawable/bg_circle"
             app:tint="#997E57C2" />
 
         <ImageView
             android:layout_width="260dp"
             android:layout_height="260dp"
             android:layout_gravity="center"
-            android:src="@drawable/acentuacao_back_circle"
+            android:src="@drawable/bg_circle"
             app:tint="#997E57C2" />
 
         <ImageView
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:layout_gravity="center"
-            android:src="@drawable/acentuacao_back_circle"
-            app:tint="@color/coerencia_bg" />
+            android:src="@drawable/bg_circle"
+            app:tint="@color/background" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -197,7 +197,7 @@
                 android:clickable="false"
                 android:focusable="false"
                 android:text="500"
-                android:textColor="@color/main_fg"
+                android:textColor="@color/background_light"
                 android:textSize="42sp"
                 android:textStyle="bold" />
 
@@ -208,7 +208,7 @@
                 android:clickable="false"
                 android:focusable="false"
                 android:text="PONTOS"
-                android:textColor="@color/main_fg"
+                android:textColor="@color/background_light"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -247,7 +247,7 @@
                 android:id="@+id/Coerencia_Button_Tip1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_coerencia_button_ripple"
+                android:background="@drawable/bg_button_square_ripple"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
@@ -287,7 +287,7 @@
                 android:id="@+id/Coerencia_Button_Tip2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_coerencia_button_ripple"
+                android:background="@drawable/bg_button_square_ripple"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_fg2"
+    android:background="@color/foreground_light"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity"
@@ -15,9 +15,8 @@
         android:id="@+id/Splash_Logo"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/main_bg"
+        android:background="@color/background"
         app:layout_constraintTop_toTopOf="parent">
-
 
     </FrameLayout>
 
@@ -36,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:background="@drawable/bg_splash_button"
-            android:backgroundTint="@color/acentuacao_bg"
+            android:backgroundTint="@color/background"
             android:elevation="4dp"
             android:orientation="vertical">
 
@@ -67,12 +66,16 @@
 
                 <TextView
                     android:id="@+id/Splash_Acentuacao_Record"
-                    style="@style/acentuacao_end_words_medium"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#5C6BC0"
-                    android:elevation="4dp"
+                    android:backgroundTint="@color/background"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="14sp"
+                    android:drawablePadding="6dp"
                     android:text="RECORDE: 0 Pontos"
+                    android:textColor="@color/white"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -105,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:background="@drawable/bg_splash_button"
-            android:backgroundTint="@color/pontuacao_bg"
+            android:backgroundTint="@color/background"
             android:elevation="4dp"
             android:orientation="vertical">
 
@@ -136,12 +139,16 @@
 
                 <TextView
                     android:id="@+id/Splash_Pontuacao_Record"
-                    style="@style/acentuacao_end_words_medium"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#5C6BC0"
-                    android:elevation="4dp"
+                    android:backgroundTint="@color/background"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="14sp"
+                    android:drawablePadding="6dp"
                     android:text="RECORDE: 0 Pontos"
+                    android:textColor="@color/white"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -174,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:background="@drawable/bg_splash_button"
-            android:backgroundTint="@color/coerencia_bg"
+            android:backgroundTint="@color/background"
             android:elevation="4dp"
             android:orientation="vertical">
 
@@ -205,12 +212,16 @@
 
                 <TextView
                     android:id="@+id/Splash_Coerencia_Record"
-                    style="@style/acentuacao_end_words_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:backgroundTint="#5C6BC0"
-                    android:elevation="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/background"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="14sp"
+                    android:drawablePadding="6dp"
                     android:text="RECORDE: 0 Pontos"
+                    android:textColor="@color/white"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -240,9 +251,8 @@
 
     </LinearLayout>
 
-
     <LinearLayout
-        android:background="@color/main_bg"
+        android:background="@color/background"
         android:id="@+id/Splash_Info"
         android:layout_width="match_parent"
         android:gravity="center"
@@ -288,6 +298,5 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
