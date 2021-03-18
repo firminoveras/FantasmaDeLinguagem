@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -356,15 +357,25 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
             alertContent.findViewById(R.id.Acentuacao_End_Record).setVisibility(View.VISIBLE);
             getSharedPreferences("records", MODE_PRIVATE).edit().putInt("recordAcentuacao", mPoints).apply();
         }
-        
+    
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setView(alertContent);
         Dialog dialog = alert.show();
         dialog.setCancelable(false);
-        
+    
         alertContent.findViewById(R.id.Acentuacao_End_Close).setOnClickListener(v -> {
             dialog.dismiss();
             finish();
         });
+    }
+    
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        if (newBase.getResources().getConfiguration().fontScale > 0.85f) {
+            final Configuration override = new Configuration(newBase.getResources().getConfiguration());
+            override.fontScale = 0.85f;
+            applyOverrideConfiguration(override);
+        }
     }
 }

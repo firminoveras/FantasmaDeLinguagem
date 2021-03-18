@@ -2609,7 +2609,22 @@
         <item>zurzir</item>
     </string-array>
 
-    <string-array name="coerencia_sentences">
+    <string-array name="coerencia_sentences_easy">
+        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
+        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
+        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+    </string-array>
+    <string-array name="coerencia_sentences_medium">
+        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
+        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
+        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+    </string-array>
+    <string-array name="coerencia_sentences_hard">
+        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
+        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
+        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+    </string-array>
+    <string-array name="coerencia_sentences_very_hard">
         <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
         <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
         <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
