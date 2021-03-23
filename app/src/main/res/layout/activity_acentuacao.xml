@@ -214,7 +214,9 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:background="@drawable/bg_circle"
+                android:background="@drawable/bg_circle_ripple"
+                android:focusable="true"
+                android:clickable="true"
                 android:elevation="4dp"
                 android:padding="18dp" />
 

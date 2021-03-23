@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="pontuacao_easy">
+        <item>O importante não é vencer todos os dias, mas lutar sempre.;Waldemar Valle Martins</item>
+        <item>Perder para a razão, sempre é ganhar.;Aldo Novak</item>
+        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.;Fran Lebowitz</item>
+    </string-array>
+
+    <string-array name="pontuacao_medium">
+        <item>O importante não é vencer todos os dias, mas lutar sempre.;Waldemar Valle Martins</item>
+        <item>Perder para a razão, sempre é ganhar.;Aldo Novak</item>
+        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.;Fran Lebowitz</item>
+    </string-array>
+
+    <string-array name="pontuacao_hard">
+        <item>O importante não é vencer todos os dias, mas lutar sempre.;Waldemar Valle Martins</item>
+        <item>Perder para a razão, sempre é ganhar.;Aldo Novak</item>
+        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.;Fran Lebowitz</item>
+    </string-array>
+
+    <string-array name="pontuacao_very_hard">
+        <item>O importante não é vencer todos os dias, mas lutar sempre.;Waldemar Valle Martins</item>
+        <item>Perder para a razão, sempre é ganhar.;Aldo Novak</item>
+        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.;Fran Lebowitz</item>
+    </string-array>
+
+
+</resources>

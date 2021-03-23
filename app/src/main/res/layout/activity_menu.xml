@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/foreground_light"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    tools:ignore="HardcodedText">
-
-    <FrameLayout
-        android:layout_margin="12dp"
-        android:id="@+id/Splash_Logo"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/background"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
+    tools:ignore="HardcodedText, ContentDescription">
 
     <LinearLayout
         android:id="@+id/Splash_Games_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="12dp"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/Splash_Info"
-        app:layout_constraintTop_toBottomOf="@+id/Splash_Logo">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,14 +56,14 @@
                     android:id="@+id/Splash_Acentuacao_Record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/background"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:textSize="14sp"
+                    android:backgroundTint="@color/background"
                     android:drawablePadding="6dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
                     android:text="RECORDE: 0 Pontos"
                     android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -141,14 +129,14 @@
                     android:id="@+id/Splash_Pontuacao_Record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/background"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:textSize="14sp"
+                    android:backgroundTint="@color/background"
                     android:drawablePadding="6dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
                     android:text="RECORDE: 0 Pontos"
                     android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -214,14 +202,14 @@
                     android:id="@+id/Splash_Coerencia_Record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/background"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-smallcaps"
-                    android:textSize="14sp"
+                    android:backgroundTint="@color/background"
                     android:drawablePadding="6dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
                     android:text="RECORDE: 0 Pontos"
                     android:textColor="@color/white"
+                    android:textSize="14sp"
                     app:drawableStartCompat="@drawable/ic_star"
                     app:drawableTint="@color/white" />
 
@@ -252,14 +240,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/background"
         android:id="@+id/Splash_Info"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:padding="6dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/background"
+        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:padding="6dp">
 
         <ImageView
             android:layout_width="24dp"
@@ -299,4 +287,75 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/Splash_Logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@color/background"
+        android:padding="12dp"
+        tools:ignore="UselessParent">
+
+
+        <FrameLayout
+            android:id="@+id/Splash_Logo_Icon"
+            android:layout_width="@dimen/splash_icon_size"
+            android:layout_height="48dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/ic_icon" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:rotation="180"
+                android:src="@drawable/ic_icon" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/Splash_Logo_Title"
+            android:layout_width="@dimen/splash_header_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginBottom="-8dp"
+                android:src="@drawable/ic_splash_icon"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:lines="1"
+                android:text="Fantasma de Linguagem"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:lines="1"
+                android:text="Treine sua Escrita Acadêmica"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

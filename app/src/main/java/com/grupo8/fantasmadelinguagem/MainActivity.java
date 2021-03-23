@@ -4,8 +4,10 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,26 +26,75 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
+        setContentView(R.layout.activity_menu);
+    
         getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background, null));
-        
+    
         mLayAcentuacao = findViewById(R.id.Splash_Acentuacao_Layout);
         mLayPontuacao = findViewById(R.id.Splash_Pontuacao_Layout);
         mLayCoerencia = findViewById(R.id.Splash_Coerencia_Layout);
-        
+    
         ((TextView) findViewById(R.id.Splash_Version)).setText(String.format("Versão %s", BuildConfig.VERSION_NAME));
-        
+    
         findViewById(R.id.Splash_Info).setOnClickListener(v -> showAppInfoDialog());
-        
+    
         updateRecords();
-        
+    
         findViewById(R.id.Splash_Acentuacao_Title).setOnClickListener(v -> setGameLayoutVisible(mLayAcentuacao));
         findViewById(R.id.Splash_Pontuacao_Title).setOnClickListener(v -> setGameLayoutVisible(mLayPontuacao));
         findViewById(R.id.Splash_Coerencia_Title).setOnClickListener(v -> setGameLayoutVisible(mLayCoerencia));
-        
+    
         findViewById(R.id.Splash_Acentuacao_Play).setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AcentuacaoActivity.class)));
+        findViewById(R.id.Splash_Pontuacao_Play).setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PontuacaoActivity.class)));
         findViewById(R.id.Splash_Coerencia_Play).setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CoerenciaActivity.class)));
+    
+        startSplashAnimations();
+    }
+    
+    private void startSplashAnimations() {
+        FrameLayout layoutIcon = findViewById(R.id.Splash_Logo_Icon);
+        LinearLayout layoutTitle = findViewById(R.id.Splash_Logo_Title);
+        FrameLayout layoutMain = findViewById(R.id.Splash_Logo);
+        layoutMain.post(() -> {
+            int width = layoutMain.getWidth();
+            int height = layoutMain.getHeight();
+            ValueAnimator animIconHorizontalExpand = ValueAnimator.ofInt((int) getResources().getDimension(R.dimen.splash_icon_size), width - ((int) getResources().getDimension(R.dimen.splash_header_padding)*2));
+            animIconHorizontalExpand.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams newLay = layoutIcon.getLayoutParams();
+                newLay.width = (int) animation.getAnimatedValue();
+                layoutIcon.setLayoutParams(newLay);
+            });
+            animIconHorizontalExpand.setDuration(500);
+
+            ValueAnimator animIconVerticalExpand = ValueAnimator.ofInt((int) getResources().getDimension(R.dimen.splash_icon_size), (int) getResources().getDimension(R.dimen.splash_header_height) - ((int) getResources().getDimension(R.dimen.splash_header_padding)*2));
+            animIconVerticalExpand.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams newLay = layoutIcon.getLayoutParams();
+                newLay.height = (int) animation.getAnimatedValue();
+                layoutIcon.setLayoutParams(newLay);
+            });
+            animIconVerticalExpand.setDuration(500);
+
+            ValueAnimator animTitleAlpha = ValueAnimator.ofFloat(layoutTitle.getAlpha(), 1);
+            animTitleAlpha.addUpdateListener(animation -> layoutTitle.setAlpha((float) animation.getAnimatedValue()));
+            animTitleAlpha.setDuration(500);
+
+            ValueAnimator animMainVerticalExpand = ValueAnimator.ofInt(height, (int) getResources().getDimension(R.dimen.splash_header_height));
+            animMainVerticalExpand.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams newLay = layoutMain.getLayoutParams();
+                newLay.height = (int) animation.getAnimatedValue();
+                layoutMain.setLayoutParams(newLay);
+            });
+            animMainVerticalExpand.setDuration(500);
+
+
+            new Handler().postDelayed(animIconHorizontalExpand::start, 1000);
+            new Handler().postDelayed(animIconVerticalExpand::start, 1800);
+            new Handler().postDelayed(animTitleAlpha::start, 1800);
+            new Handler().postDelayed(animMainVerticalExpand::start, 4000);
+        });
+        
+        
+        
     }
     
     private void showAppInfoDialog() {

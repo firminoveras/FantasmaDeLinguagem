@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/Theme.FantasmaDeLinguagem">
+        <activity android:name=".PontuacaoActivity"></activity>
         <activity android:name=".CoerenciaActivity" />
         <activity android:name=".AcentuacaoActivity" />
         <activity android:name=".MainActivity">
