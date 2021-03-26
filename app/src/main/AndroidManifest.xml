@@ -16,12 +16,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:theme="@style/Theme.FantasmaDeLinguagem">
-        <activity android:name=".PontuacaoActivity"></activity>
+        <activity android:name=".PontuacaoActivity" />
         <activity android:name=".CoerenciaActivity" />
         <activity android:name=".AcentuacaoActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

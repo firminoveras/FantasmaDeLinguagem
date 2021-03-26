@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tutorial_acentuacao">
+        <item>1. Rodadas#Serão 10 rodadas e você precisará digitar corretamente uma palavra em cada uma delas.</item>
+        <item>2. Ouvir#Toque aqui para ouvir a palavra da rodada.</item>
+        <item>3. Pontuação da Rodada#Essa é a pontuação que você ganhará caso acerte a palavra, ela poderá ser diminuída caso você erre a palavra ou ouça a palavra mais de uma vez.</item>
+        <item>4. Palpite#Aqui será onde sua palavra-palpite será digitada, tenha certeza de que ela estará corretamente escrita!</item>
+        <item>5. Pontos#Caso acerte, a pontuação da rodada será adicionada à sua pontuação geral.</item>
+        <item>6. Dica#Caso esteja em dúvida, poderá comprar uma dica, porém custará 500 pontos.</item>
+        <item>7. Confirmar#Toque aqui para confirmar. Caso a palavra esteja correta, você ganhará os pontos, se não, será descontado 100 pontos da sua pontuação de rodada.</item>
+        <item>8. Pular#Caso tenha mais de 500 pontos na sua pontuação geral, poderá pular um desafio que não esteja conseguindo resolver.</item>
+    </string-array>
+
+    <string-array name="tutorial_coerencia">
+        <item>1. Rodadas#Serão 5 rodadas e você precisará selecionar a palavra correta em cada uma delas.</item>
+        <item>2. Frase#Há uma palavra oculta na frase de cada rodada. Seu objetivo é descobrir que palavra é essa.</item>
+        <item>3. Dicas#Existem três diferentes dicas que você poderá obter durante as rodadas. Essas dicas ficam dispostas nesta caixa.</item>
+        <item>4. Significado#Toque aqui para desbloquear uma dica que revelará o significado da palavra oculta no dicionário ao custo da metade dos pontos da rodada.</item>
+        <item>5. Sinônimo#Toque aqui para desbloquear uma dica que revelará sinônimos da palavra oculta ao custo da metade dos pontos da rodada.</item>
+        <item>6. Palavra#Neste circulo estão palavras embaralhadas, dentre elas está a palavra oculta que encaixa perfeitamente na frase acima.</item>
+        <item>7. Esfera#Deslize seu dedo pela esfera até que sua palavra-palpite se posicione à frente. Toque na palavra para confirmar o palpite.</item>
+        <item>8. Pontuação da Rodada#Essa é a pontuação que você ganhará caso acerte a palavra, ela poderá ser diminuída caso você erre a palavra ou compre dicas.</item>
+    </string-array>
+
+</resources>

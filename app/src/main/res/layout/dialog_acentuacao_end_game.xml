@@ -313,7 +313,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:layout_marginTop="12dp"
-        android:background="@drawable/bg_acentuacao_texto_button_ripple"
+        android:background="@drawable/bg_round_green_button_ripple"
         android:gravity="center"
         android:padding="12dp"
         android:src="@drawable/ic_acentuacao_confirm"

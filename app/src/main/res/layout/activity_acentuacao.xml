@@ -1,49 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Acentuacao_Root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:padding="12dp"
+    android:background="@color/white"
     tools:context=".AcentuacaoActivity"
     tools:ignore="ContentDescription, HardcodedText">
 
-    <GridLayout
-        android:id="@+id/Acentuacao_HeaderTexts"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:columnCount="3"
-        android:elevation="4dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_marginEnd="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/bg_acentuacao_key_bg"
-            android:backgroundTint="@color/red"
-            android:elevation="8dp"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="-500 Pontos"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_anchor="@id/Acentuacao_Button_Pass"
-            app:layout_anchorGravity="center_horizontal" />
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:padding="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_acentuacao_key_bg"
             android:backgroundTint="@color/background_light"
@@ -56,62 +31,13 @@
             android:textStyle="bold" />
 
         <TextView
-            android:layout_marginStart="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/bg_acentuacao_key_bg"
-            android:backgroundTint="@color/red"
-            android:elevation="8dp"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="-500 Pontos"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_anchor="@id/Acentuacao_Button_Buy_Tip"
-            app:layout_anchorGravity="center_horizontal" />
-
-    </GridLayout>
-
-    <LinearLayout
-        android:id="@+id/Acentuacao_Header"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:layout_below="@+id/Acentuacao_HeaderTexts"
-        android:layout_marginTop="-16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/Acentuacao_Button_Pass"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_button_square_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="Pular"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/Acentuacao_Pontos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_columnWeight="1"
-            android:layout_margin="6dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:minWidth="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/bg_acentuacao_key_bg"
             android:backgroundTint="@color/background"
             android:gravity="center"
@@ -121,451 +47,502 @@
             android:textSize="34sp"
             android:textStyle="bold" />
 
-
         <TextView
-            android:id="@+id/Acentuacao_Button_Buy_Tip"
+            android:id="@+id/Acentuacao_Text_Nivel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_button_square_ripple"
-            android:clickable="true"
-            android:focusable="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Acentuacao_Pontos"
+            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:padding="12dp"
-            android:text="Comprar Dica"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="12sp"
+            android:text="Nível 1"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/Acentuacao_Text_Nivel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Acentuacao_Header"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center"
-        android:text="Nível 1"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/Acentuacao_Text_Nivel_Dificuldade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Acentuacao_Text_Nivel"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center"
-        android:text="Palavra Fácil"
-        android:textSize="18sp" />
-
-    <ProgressBar
-        android:id="@+id/Acentuacao_Progress_Niveis"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Acentuacao_Text_Nivel_Dificuldade"
-        android:max="10"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:progress="1"
-        android:progressTint="@color/background" />
-
-    <LinearLayout
-        android:paddingStart="6dp"
-        android:paddingEnd="6dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/Acentuacao_Keyboard"
-        android:layout_below="@+id/Acentuacao_Progress_Niveis"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <FrameLayout
+        <TextView
+            android:id="@+id/Acentuacao_Text_Nivel_Dificuldade"
             android:layout_width="match_parent"
-            android:layout_height="148dp">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Acentuacao_Text_Nivel"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Palavra Fácil"
+            android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/Acentuacao_Speak_Button_Back2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:alpha=".3"
-                android:backgroundTint="@color/background"
-                android:background="@drawable/bg_circle" />
+        <ProgressBar
+            android:id="@+id/Acentuacao_Progress_Niveis"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Acentuacao_Text_Nivel_Dificuldade"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:max="10"
+            android:progress="1"
+            android:progressTint="@color/background" />
 
-            <ImageView
-                android:id="@+id/Acentuacao_Speak_Button_Back1"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:alpha=".3"
-                android:backgroundTint="@color/background"
-                android:background="@drawable/bg_circle" />
+        <TextView
+            android:id="@+id/Acentuacao_HowPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Como Jogar"
+            android:textColor="@color/foreground"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_help"
+            app:drawableTint="@color/foreground" />
 
-            <ImageView
-                android:id="@+id/Acentuacao_Speak_Button"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:background="@drawable/bg_circle_ripple"
-                android:focusable="true"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="18dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Acentuacao_Keyboard"
+            android:layout_below="@+id/Acentuacao_Progress_Niveis"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
 
-            <ImageView
-                android:id="@+id/Acentuacao_Speak_Button_Icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/white"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:src="@drawable/ic_voice" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="148dp">
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Speak_Button_Back2"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:alpha=".3"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/background" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Speak_Button_Back1"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:alpha=".3"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/background" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Speak_Button"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_circle_ripple"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:focusable="true"
+                    android:padding="18dp" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Speak_Button_Icon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:elevation="4dp"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_voice" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_SpreakCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="2sp"
+                    android:alpha="0"
+                    android:background="@drawable/bg_acentuacao_round_text"
+                    android:backgroundTint="#EF5350"
+                    android:elevation="4dp"
+                    android:padding="4dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/Acentuacao_SpreakCount"
+                android:id="@+id/Acentuacao_Button_Pass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="2sp"
-                android:alpha="0"
-                android:background="@drawable/bg_acentuacao_round_text"
-                android:backgroundTint="#EF5350"
-                android:elevation="4dp"
-                android:padding="4dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/bg_acentuacao_button_ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="Pular"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
-        </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_acentuacao_texto_resposta">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_acentuacao_texto_resposta">
+                <TextView
+                    android:id="@+id/Acentuacao_Text_Resposta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="Resposta"
+                    android:lines="1"
+                    android:maxLength="20"
+                    android:padding="18dp"
+                    android:textAllCaps="true"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Keyboard_Confirm"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_round_green_button_ripple"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_acentuacao_confirm"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Button_Buy_Tip"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_round_button_ripple"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_tip"
+                    app:tint="@color/white" />
+
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/Acentuacao_Text_Resposta"
+                android:id="@+id/Acentuacao_Pontos_Valendo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_acentuacao_key_bg"
+                android:backgroundTint="@color/green"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text="200 Pontos"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Acentuacao_Keyboard_Acentos"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_above="@+id/Acentuacao_Keyboard"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/Acentuacao_Keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_acentuacao_key_bg"
+            android:backgroundTint="#EEEEEE"
+            android:elevation="2dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="Resposta"
-                android:lines="1"
-                android:maxLength="20"
-                android:padding="18dp"
-                android:textAllCaps="true"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/Acentuacao_Keyboard_Confirm"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:layout_margin="6dp"
-                android:background="@drawable/bg_acentuacao_texto_button_ripple"
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Q" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="W" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_Key_Vogal_E"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="E" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="R" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="T" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Y" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_Key_Vogal_U"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="U" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_Key_Vogal_I"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="I" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_Key_Vogal_O"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="O" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="P" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="12dp"
-                android:src="@drawable/ic_acentuacao_confirm"
-                app:tint="@color/white" />
+                android:orientation="horizontal">
 
-        </FrameLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1.05" />
+
+                <TextView
+                    android:id="@+id/Acentuacao_Key_Vogal_A"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="A" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="S" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="D" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="F" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="G" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="H" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="J" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="K" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="L" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1.05" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1.05" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Z" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="X" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="C" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="V" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="B" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="N" />
+
+                <TextView
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="M" />
+
+                <ImageView
+                    android:id="@+id/Acentuacao_Keyboard_Backspace"
+                    style="@style/acentuacao_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight=".94"
+                    android:backgroundTint="@color/red"
+                    android:gravity="center"
+                    android:src="@drawable/ic_acentuacao_backspace"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/Acentuacao_Loading_Layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_circle"
+        android:backgroundTint="@color/background"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white" />
 
         <TextView
-            android:id="@+id/Acentuacao_Pontos_Valendo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="-12dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="6dp"
-            android:background="@drawable/bg_acentuacao_key_bg"
-            android:backgroundTint="@color/green"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="200 Pontos"
-            android:textAllCaps="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Carregando"
             android:textColor="@color/white"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Acentuacao_Keyboard_Acentos"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_above="@+id/Acentuacao_Keyboard"
-        android:gravity="center"
-        android:orientation="horizontal" />
-
-    <LinearLayout
-        android:id="@+id/Acentuacao_Keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/bg_acentuacao_key_bg"
-        android:backgroundTint="#EEEEEE"
-        android:elevation="2dp"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:padding="4dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Q" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="W" />
-
-            <TextView
-                android:id="@+id/Acentuacao_Key_Vogal_E"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="E" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="R" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="T" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Y" />
-
-            <TextView
-                android:id="@+id/Acentuacao_Key_Vogal_U"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="U" />
-
-            <TextView
-                android:id="@+id/Acentuacao_Key_Vogal_I"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="I" />
-
-            <TextView
-                android:id="@+id/Acentuacao_Key_Vogal_O"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="O" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="P" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1.05" />
-
-            <TextView
-                android:id="@+id/Acentuacao_Key_Vogal_A"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="A" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="S" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="D" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="F" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="G" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="H" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="J" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="K" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="L" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1.05" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1.05" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="Z" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="X" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="C" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="V" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="B" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="N" />
-
-            <TextView
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:text="M" />
-
-            <ImageView
-                android:id="@+id/Acentuacao_Keyboard_Backspace"
-                style="@style/acentuacao_key"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_weight=".94"
-                android:backgroundTint="@color/red"
-                android:gravity="center"
-                android:src="@drawable/ic_acentuacao_backspace"
-                app:tint="@color/white" />
-
-        </LinearLayout>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</FrameLayout>

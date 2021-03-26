@@ -1,5 +1,6 @@
 package com.grupo8.fantasmadelinguagem;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
@@ -15,21 +16,28 @@ import android.text.SpannableString;
 import android.text.TextPaint;
 import android.text.style.BackgroundColorSpan;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.magicgoop.tagsphere.TagSphereView;
 import com.magicgoop.tagsphere.item.TagItem;
 import com.magicgoop.tagsphere.item.TextTagItem;
+import com.takusemba.spotlight.Spotlight;
+import com.takusemba.spotlight.Target;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -54,6 +62,7 @@ public class CoerenciaActivity extends AppCompatActivity {
     private TextView mTextRound;
     private TextView mTextWinPoints;
     private TextView mErroPenality;
+    private LinearLayout mLoadingLayout;
     
     private MediaPlayer mSucessSound;
     private MediaPlayer mFailSound;
@@ -63,12 +72,20 @@ public class CoerenciaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coerencia);
+        getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background, null));
         
         mTextDifficult = findViewById(R.id.Coerencia_Text_Nivel_Dificuldade);
         mRoundProgress = findViewById(R.id.Coerencia_Progress_Niveis);
         mTextRound = findViewById(R.id.Coerencia_Text_Nivel);
         mTextWinPoints = findViewById(R.id.Coerencia_Pontos);
         mErroPenality = findViewById(R.id.Coerencia_Label_LosePoints);
+        mLoadingLayout = findViewById(R.id.Coerencia_Loading_Layout);
+
+        mLoadingLayout.setVisibility(View.VISIBLE);
+        ViewGroup.LayoutParams newLayout = mLoadingLayout.getLayoutParams();
+        newLayout.height = getResources().getDisplayMetrics().heightPixels * 2;
+        newLayout.width = getResources().getDisplayMetrics().heightPixels * 2;
+        mLoadingLayout.setLayoutParams(newLayout);
         
         mSucessSound = MediaPlayer.create(this, R.raw.acentuacao_sucess);
         mFailSound = MediaPlayer.create(this, R.raw.acentuacao_fail);
@@ -138,7 +155,7 @@ public class CoerenciaActivity extends AppCompatActivity {
             mBuySound.start();
             mMeaningBuyed = true;
             updateTips();
-            changeWinPoints((int) -(mWinPoints * 0.3));
+            changeWinPoints((int) -(mWinPoints * 0.5));
         });
         
         findViewById(R.id.Coerencia_Button_Tip2).setOnClickListener(v -> {
@@ -149,8 +166,64 @@ public class CoerenciaActivity extends AppCompatActivity {
             updateTips();
             changeWinPoints((int) -(mWinPoints * 0.5));
         });
+
+        findViewById(R.id.Coerencia_HowPlay).setOnClickListener(v -> showHowToPlay());
         
+        new Handler().postDelayed(() -> {
+            ValueAnimator anim = ValueAnimator.ofInt(getResources().getDisplayMetrics().heightPixels * 2, 1);
+            anim.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams params = mLoadingLayout.getLayoutParams();
+                params.height = (int) animation.getAnimatedValue();
+                params.width = (int) animation.getAnimatedValue();
+                mLoadingLayout.setLayoutParams(params);
+            });
+            anim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mLoadingLayout.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            anim.setDuration(1000);
+            anim.start();
+        }, 1000);
+        new Handler().postDelayed(() ->  getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background_white, null)), 1500);
         startNextRound();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        if (newBase.getResources().getConfiguration().fontScale > 0.85f) {
+            final Configuration override = new Configuration(newBase.getResources().getConfiguration());
+            override.fontScale = 0.85f;
+            applyOverrideConfiguration(override);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        View alertContent = getLayoutInflater().inflate(R.layout.dialog_exit_game_confirm, findViewById(R.id.ExitConfirm_Root));
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setView(alertContent);
+        Dialog dialog = alert.show();
+        dialog.setCancelable(false);
+        alertContent.findViewById(R.id.ExitConfirm_No).setOnClickListener(v -> dialog.dismiss());
+        alertContent.findViewById(R.id.ExitConfirm_Yes).setOnClickListener(v -> super.onBackPressed());
     }
     
     private void startNextRound() {
@@ -230,7 +303,7 @@ public class CoerenciaActivity extends AppCompatActivity {
     private void changeWinPoints(int change) {
         mWinPoints += change;
         ((TextView) findViewById(R.id.Coerencia_Win_Points)).setText(String.valueOf(mWinPoints));
-        ((TextView) findViewById(R.id.Coerencia_Win_Points)).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
+        findViewById(R.id.Coerencia_Win_Points).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
     }
     
     private void endGame(boolean win) {
@@ -270,14 +343,32 @@ public class CoerenciaActivity extends AppCompatActivity {
             finish();
         });
     }
-    
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(newBase);
-        if (newBase.getResources().getConfiguration().fontScale > 0.85f) {
-            final Configuration override = new Configuration(newBase.getResources().getConfiguration());
-            override.fontScale = 0.85f;
-            applyOverrideConfiguration(override);
-        }
+
+    private void showHowToPlay() {
+        String[] helpStrings = getResources().getStringArray(R.array.tutorial_coerencia);
+        List<Target> targetList = new ArrayList<>();
+
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Text_Nivel_Dificuldade), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_MainText), 300f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Tip), 200f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Button_Tip1), 100f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Button_Tip2), 100f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Words_Ball), 300f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Words_Ball), 200f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Coerencia_Words_Ball), 120f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1],R.layout.tutorial_coerencia).getTarget());
+
+        Spotlight spotlight = new Spotlight.Builder(this)
+                .setTargets(targetList)
+                .setBackgroundColor(getColor(R.color.spotlightBackground))
+                .setDuration(1000L)
+                .setAnimation(new DecelerateInterpolator(2f))
+                .setContainer(findViewById(R.id.Coerencia_Root))
+                .build();
+
+        spotlight.start();
+
+        for (int index = 0; index < targetList.size(); index++)
+            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
     }
+
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/foreground_light"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".MenuActivity"
     tools:ignore="HardcodedText, ContentDescription">
 
     <LinearLayout
@@ -293,6 +293,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="top"
         android:background="@color/background"
+        android:clickable="true"
+        android:focusable="true"
         android:padding="12dp"
         tools:ignore="UselessParent">
 
@@ -357,5 +359,19 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/Splash_RoundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_circle"
+        android:backgroundTint="@color/background"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" />
 
 </FrameLayout>
