@@ -7,10 +7,9 @@
     android:background="@color/foreground_light"
     android:orientation="vertical"
     tools:context=".MenuActivity"
-    tools:ignore="HardcodedText, ContentDescription">
+    tools:ignore="ContentDescription,HardcodedText,Overdraw">
 
     <LinearLayout
-        android:id="@+id/Splash_Games_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -288,6 +287,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:elevation="4dp"
         android:id="@+id/Splash_Logo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

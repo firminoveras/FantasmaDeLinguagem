@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.media.MediaPlayer;
@@ -239,7 +240,25 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
         Dialog dialog = alert.show();
         dialog.setCancelable(false);
         alertContent.findViewById(R.id.ExitConfirm_No).setOnClickListener(v -> dialog.dismiss());
-        alertContent.findViewById(R.id.ExitConfirm_Yes).setOnClickListener(v -> super.onBackPressed());
+        alertContent.findViewById(R.id.ExitConfirm_Yes).setOnClickListener(v -> {
+            getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background, null));
+            dialog.dismiss();
+            mLoadingLayout.setVisibility(View.VISIBLE);
+            ValueAnimator anim = ValueAnimator.ofInt(1, getResources().getDisplayMetrics().heightPixels * 2);
+            anim.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams params = mLoadingLayout.getLayoutParams();
+                params.height = (int) animation.getAnimatedValue();
+                params.width = (int) animation.getAnimatedValue();
+                mLoadingLayout.setLayoutParams(params);
+            });
+            anim.setDuration(1000);
+            anim.start();
+            new Handler().postDelayed(() -> {
+                super.onBackPressed();
+                startActivity(new Intent(AcentuacaoActivity.this, MenuActivity.class));
+                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+            }, 1000);
+        });
     }
 
     private void initKeyboard() {
@@ -433,6 +452,7 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
 
         alertContent.findViewById(R.id.Acentuacao_End_Close).setOnClickListener(v -> {
             dialog.dismiss();
+            startActivity(new Intent(AcentuacaoActivity.this, MenuActivity.class));
             finish();
         });
     }

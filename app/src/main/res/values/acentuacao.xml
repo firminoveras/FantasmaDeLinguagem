@@ -88,13 +88,4 @@
         <item>susceptível</item>
     </string-array>
 
-    <string-array name="dica_acento_agudo">
-    </string-array>
-
-    <string-array name="dica_acento_circunflexo">
-    </string-array>
-
-    <string-array name="dica_acento_til">
-    </string-array>
-
 </resources>

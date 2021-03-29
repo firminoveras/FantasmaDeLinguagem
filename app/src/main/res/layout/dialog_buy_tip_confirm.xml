@@ -8,7 +8,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:ignore="HardcodedText, ContentDescription,ButtonStyle">
+    tools:ignore="ButtonStyle,ContentDescription,HardcodedText,Overdraw">
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
-        android:text="Você está prestes à comprar uma dica. Isso custará metade dos pontos que você ganharia nessa rodada."
+        android:text="Você está prestes à comprar uma dica. Isso custará metade dos pontos que você ganharia nessa rodada a partir desse momento."
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />

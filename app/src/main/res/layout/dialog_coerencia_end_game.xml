@@ -8,7 +8,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:ignore="ContentDescription, HardcodedText">
+    tools:ignore="ContentDescription,HardcodedText,Overdraw">
 
     <ImageView
         android:layout_width="match_parent"

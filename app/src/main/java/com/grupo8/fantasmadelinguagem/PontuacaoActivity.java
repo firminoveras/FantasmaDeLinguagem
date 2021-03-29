@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -16,6 +17,7 @@ import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -26,9 +28,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.material.tabs.TabLayout;
+import com.takusemba.spotlight.Spotlight;
+import com.takusemba.spotlight.Target;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -111,10 +117,9 @@ public class PontuacaoActivity extends AppCompatActivity {
             }
         });
 
-        mInsertButton.setOnLongClickListener(v -> {
-            showDialogTip();
-            return true;
-        });
+        findViewById(R.id.Pontuacao_Tip_Button).setOnClickListener(v -> showDialogTip());
+
+        findViewById(R.id.Pontuacao_HowPlay).setOnClickListener(v -> showHowToPlay());
 
         findViewById(R.id.Pontuacao_Button_Clear).setOnClickListener(v -> clearPontuacoes());
 
@@ -190,7 +195,25 @@ public class PontuacaoActivity extends AppCompatActivity {
         Dialog dialog = alert.show();
         dialog.setCancelable(false);
         alertContent.findViewById(R.id.ExitConfirm_No).setOnClickListener(v -> dialog.dismiss());
-        alertContent.findViewById(R.id.ExitConfirm_Yes).setOnClickListener(v -> super.onBackPressed());
+        alertContent.findViewById(R.id.ExitConfirm_Yes).setOnClickListener(v -> {
+            getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background, null));
+            dialog.dismiss();
+            mLoadingLayout.setVisibility(View.VISIBLE);
+            ValueAnimator anim = ValueAnimator.ofInt(1, getResources().getDisplayMetrics().heightPixels * 2);
+            anim.addUpdateListener(animation -> {
+                ViewGroup.LayoutParams params = mLoadingLayout.getLayoutParams();
+                params.height = (int) animation.getAnimatedValue();
+                params.width = (int) animation.getAnimatedValue();
+                mLoadingLayout.setLayoutParams(params);
+            });
+            anim.setDuration(1000);
+            anim.start();
+            new Handler().postDelayed(() -> {
+                super.onBackPressed();
+                startActivity(new Intent(PontuacaoActivity.this, MenuActivity.class));
+                overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+            }, 1000);
+        });
     }
 
     private void clearPontuacoes() {
@@ -337,6 +360,7 @@ public class PontuacaoActivity extends AppCompatActivity {
         mTextAuthor.setEnabled(false);
         mTextPoints.setEnabled(false);
         mInsertButton.setEnabled(false);
+        ((TextView) findViewById(R.id.Pontuacao_Win_Points)).setText("-");
         findViewById(R.id.Pontuacao_Button_Confirm).setEnabled(false);
         findViewById(R.id.Pontuacao_Button_Clear).setEnabled(false);
 
@@ -381,9 +405,39 @@ public class PontuacaoActivity extends AppCompatActivity {
 
         alertContent.findViewById(R.id.Pontuacao_End_Close).setOnClickListener(v -> {
             dialog.dismiss();
+            startActivity(new Intent(PontuacaoActivity.this, MenuActivity.class));
             finish();
         });
 
+    }
+
+    private void showHowToPlay() {
+        String[] helpStrings = getResources().getStringArray(R.array.tutorial_pontuacao);
+        List<Target> targetList = new ArrayList<>();
+
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Text_Nivel), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_MainText), 220f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Left_Back1), 180f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Right_Back1), 180f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Pontuacoes), 140f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Insert_Back2), 180f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Clear), 120f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Tip_Button), 120f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Confirm), 120f, helpStrings[8].split("#")[0], helpStrings[8].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Win_Points), 100f, helpStrings[9].split("#")[0], helpStrings[9].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
+
+        Spotlight spotlight = new Spotlight.Builder(this)
+                .setTargets(targetList)
+                .setBackgroundColor(getColor(R.color.spotlightBackground))
+                .setDuration(1000L)
+                .setAnimation(new DecelerateInterpolator(2f))
+                .setContainer(findViewById(R.id.Pontuacao_Root))
+                .build();
+
+        spotlight.start();
+
+        for (int index = 0; index < targetList.size(); index++)
+            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
     }
 
 }

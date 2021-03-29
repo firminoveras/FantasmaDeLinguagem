@@ -4,7 +4,6 @@
     <string name="acentuacao_medium_word">Palavra Média</string>
     <string name="acentuacao_hard_word">Palavra Difícil</string>
     <string name="acentuacao_veryhard_word">Palavra Muito Difícil</string>
-    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer scelerisque condimentum purus in molestie. Duis ut arcu in lorem dictum auctor vel in enim. Aenean at erat auctor, ullamcorper velit nec, posuere felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, nibh in egestas mattis, augue eros pulvinar est, nec pulvinar lectus odio egestas diam.</string>
 
     <string name="info_know_more">Toque para saber mais</string>
     <string name="info_authors">Desenvolvido pelo Grupo8 - LPT</string>
@@ -17,13 +16,10 @@
     <string name="info_header_developers">Desenvolvimento</string>
     <string name="info_developers">O aplicativo Fantasma de Linguagem foi desenvolvido pelo Grupo8 da disciplina de LPT, composto por Firmino Veras, Sabrina Rhuana, Pedro Afonso e Thanaki Leite, orientados pela Professora e Coordenadora Rosângela Medeiros ♥ do Curso Bacharelado em Computação da UEPB.</string>
     <string name="info_button_github">Projeto no Github</string>
-    <string name="ref">TESTE, referencia teste, 2021.</string>
-    <string name="title_activity_coerencia">Coerencia</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
     <string name="coerencia_phrase_easy">Frase Facil</string>
     <string name="coerencia_phrase_medium">Frase Intermediária</string>
     <string name="coerencia_phrase_hard">Frase Difícil</string>

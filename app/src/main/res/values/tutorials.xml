@@ -22,4 +22,17 @@
         <item>8. Pontuação da Rodada#Essa é a pontuação que você ganhará caso acerte a palavra, ela poderá ser diminuída caso você erre a palavra ou compre dicas.</item>
     </string-array>
 
+    <string-array name="tutorial_pontuacao">
+        <item>1. Rodadas#Serão 5 rodadas e você precisará completar a frase com as pontuações faltantes corretamente.</item>
+        <item>2. Frase#Todos os sinais de pontuação da frase foram retirados. Seu objetivo é inserir todos esses pontos faltantes de maneira correta.</item>
+        <item>3. Posicionamento#Com este botão você consegue mover o ponteiro de inserção de pontuação para o fim da palavra anterior…</item>
+        <item>3. Posicionamento#…já este, você posiciona o ponteiro para o final da próxima palavra.</item>
+        <item>4. Sinal#Aqui é onde você escolhe qual será a pontuação a ser inserida…</item>
+        <item>5. Inserir#…E com este botão você a insere na frase, na posição do cursor.</item>
+        <item>6. Limpar#Caso você cometa algum erro, você poderá limpar todas as pontuações que você inseriu no texto sem custo de pontos.</item>
+        <item>7. Dica#Toque neste botão para receber uma dica sobre a pontuação selecionada, isso custará metade dos seus pontos.</item>
+        <item>8. Confirmar#Toque aqui para confirmar e concluir a frase…</item>
+        <item>8. Pontos#…caso sua frase esteja pontuada corretamente, você ganhará esses pontos, no contrário, você perderá metade destes pontos e poderá tentar novamente caso essa pontuação seja acima de 100.</item>
+    </string-array>
+
 </resources>

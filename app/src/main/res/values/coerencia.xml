@@ -5,25 +5,66 @@
         <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
         <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
         <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+        <item>As raízes do estudo são :amargas:, mas seus frutos são doces.;Aristóteles;adjetivo;cheio de mágoa, de amargura; ressentido, desgostoso.;amarescente, acerbo, ácido, agre.</item>
+        <item>Nenhum obstáculo será grande se a sua :vontade: de vencer for maior.;Autor desconhecido;substantivo feminino;força interior que impulsiona o indivíduo a realizar algo.;impulso, proposito, desejo.</item>
+        <item>Para ser um :campeão: você tem que acreditar em si mesmo quando ninguém mais acredita.;Muhammad Ali;substantivo masculino;aquele que se destaca por fazer algo de maneira melhor;herói,vencedor.</item>
+        <item>A paciência é um elemento :fundamental: do sucesso.;Bill Gates;adjetivo de dois gêneros;que tem caráter essencial e determinante; básico, indispensável;necessário, principal, básico, essencial.</item>
+        <item>Quem sabe faz a hora, não espera :acontecer:.;Geraldo Vandré;verbo;ser ou tornar-se realidade no tempo e no espaço.;ocorrer, advir.</item>
+        <item>Eu não sonhei com :sucesso:. Eu trabalhei para ele;Estée Lauder;substantivo masculino;bom resultado; êxito, triunfo.;vitória, arremate, conclusão.</item>
+        <item>Você nunca será velho demais para sonhar um novo :sonho:.;C. S. Lewis;substantivo masculino;ato ou efeito de sonhar.;devaneio, fábula, fabulação, fantasia.</item>
+        <item>Um livro, uma :caneta:, uma criança e um professor podem mudar o mundo;Malala Yousafzai;substantivo feminino;pequeno tubo em que se coloca lápis ou pena para escrever;caneta esferográfica, caneta-tinteiro.</item>
+        <item>Se você quer ser bem sucedido, precisa ter :dedicação: total, buscar seu último limite e dar o melhor de si mesmo;Ayrton Senna;substantivo feminino;qualidade ou condição de quem se dedica a alguém ou algo;aplicação, ardor, atenção.</item>
+        <item>O fracasso é uma ótima oportunidade para :começar: de novo de forma mais inteligente.;Henry Ford;verbo;ter começo, ter princípio.;Iniciar, principiar, inaugurar.</item>
+        <item>A melhor forma de prever o :futuro: é criá-lo.;Abraham Lincoln;substantivo masculino;conjunto de fatos relacionados a um tempo que há de vir;posterior, consecutivo, consequente.</item>
+        <item>Aprenda com o :ontem:. Viva o hoje. tenha esperança para o amanhã.;Albert Einstein;advérbio;no dia imediatamente anterior àquele em que se está.;antigamente, no passado.</item>
+        <item>Sucesso é o acúmulo de pequenos :esforços:, repetidos dia e noite.;Robert Collier;substantivo masculino;aquilo que se faz com dificuldade e empenho; trabalho, empreendimento, obra.;tentativa,investida.</item>
+        <item>Você não se :afoga: por cair na água, mas por ficar lá.;Ed Cole;verbo;impedir de respirar por sufocação;refogar, embeber, ensopar.</item>
+        <item>Uma pessoa que nunca :cometeu: um erro nunca tentou nada novo;Albert Einstein;verbo;levar a efeito, fazer, executar.;encarregar, encomendar,delegar.</item>
+        <item>Descobri que, quanto mais eu trabalho, mais :sorte: pareço ter.;Thomas Jefferson;substantivo feminino;acaso ou coincidência feliz; contingência favorável.;destino, aragem, aventura.</item>
+        <item>Não há :atalhos: para nenhum destino onde se vale a pena chegar.;Beverly Sills;substantivo masculino;maneira de se conseguir alguma coisa em menos tempo ou com menos esforço do que por meios normais.;trilha, caminho.</item>
+
     </string-array>
 
     <string-array name="coerencia_sentences_medium">
-        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
-        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
-        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+        <item>Eu posso aceitar a :falha:, todos falham em alguma coisa. Mas eu não posso aceitar não tentar;Michael Jordan;substantivo feminino;falta de perfeição; defeito, erro.;erro, imperfeição.</item>
+        <item>Somente os que ousam errar muito podem :realizar: muito;John F. Kennedy;verbo;botar em prática; fazer, efetuar;concluir, corporificar, produzir, acontecer.</item>
+        <item>A sorte favorece a mente :preparada;Louis Pasteur;substantivo masculino;Que tem preparo, que tem certo conhecimento.; disposta, organizada, pronta.</item>
+        <item>Você precisa fazer aquilo que pensa que não é :capaz: de fazer;Eleanor Roosevelt;adjetivo de dois gêneros;dotado de capacidade;apto, capacitado, preparado, habilitado.</item>
+        <item>Se você quer fazer uma coisa realmente :grande:, seja grande como a coisa que você quer fazer;Nizan Guanaes;adjetivo de dois gêneros;cujas dimensões são maiores que o normal;alto, grandioso, esplêndido.</item>
+        <item>Na :vida: sempre fazemos escolhas. Ainda que escolhemos não escolher;Carmen Miranda;substantivo feminino;modo de viver, conjunto de hábitos;começo, nascimento, origem.</item>
+        <item>Quanto maior a dificuldade maior é o :mérito: de superá-la;H. W. Beecher;substantivo masculino;O que caracteriza a ação de merecer honras ou castigos;aptidão, competência, capacidade, dom.</item>
+        <item>Os meus maiores sucessos chegaram no :seguimento: de grandes fracassos.;Barbara Corcoran;substantivo masculino;ação ou efeito de seguir; seguida, continuação.;continuidade, prolongamento, prosseguimento.</item>
+        <item>Não importa o quão rápido você anda, mas a :força: de vontade para nunca parar.;Confúcio;substantivo feminino;qualidade do que é forte, robustez, vigor físico.;vigor, arbítrio, ascendência.</item>
+        <item>Perde tudo quem perde o :momento: certo;Provérbio espanhol;substantivo masculino;espaço de tempo indeterminado;ensejo, feita, instante.</item>
     </string-array>
 
     <string-array name="coerencia_sentences_hard">
-        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
-        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
-        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
-    </string-array>
-    <string-array name="coerencia_sentences_very_hard">
-        <item>Não espere por uma crise para descobrir o que é :importante: em sua vida.;Platão;adjetivo de dois gêneros;que tem caráter essencial e determinante;necessário, básico, fundamental.</item>
-        <item>Ensinem as crianças a tomar consciência dos seus :sonhos:.;Rubem Alves;substantivo masculino;conjunto de imagens, de pensamentos ou de fantasias que se apresentam à mente durante o sono.;devaneio, fantasia.</item>
-        <item>Sinto falta de lugares que não conheci, :experiências: que não vivi, momentos que já esqueci.;Martha Medeiros;substantivo feminino;qualquer conhecimento obtido por meio dos sentidos.;experimentação, experimento</item>
+        <item>Ouse ir além, ouse fazer diferente e o poder lhe será :dado:!;José Roberto Marques;adjetivo;aquilo que se deu, concedido.;oferecido, presenteado, doado, cedido.</item>
+        <item>O pessimista vê dificuldade em toda :oportunidade:. O otimista vê :oportunidade: em toda dificuldade;Winston Churchill;substantivo feminino;ocasião azada, favorável para a realização de algo;ocasião, momento, ensejo.</item>
+        <item>Inteligência é a :capacidade: de se adaptar às mudanças.;Stephen Hawking;substantivo feminino;habilidade física ou mental de um indivíduo; aptidão, perícia.;aptidão, atributo, dom, dote.</item>
+        <item>A :confiança: em si mesmo é o primeiro segredo do sucesso.;Ralph Waldo Emerson;substantivo feminino;crença de que algo não falhará, de que é bem-feito ou forte o suficiente para cumprir sua função;certeza, confidência, fé.</item>
+        <item>A vida é curta demais. Não corra o :risco: de passar seus dias apenas afinando seu instrumento sem jamais fazer um grande espetáculo;Carlos Martins;substantivo masculino;aquilo que chama e prende a atenção.;apresentação, atração, exibição.</item>
+        <item>Sonhe grande e se :atreva: a falhar;Norman Vaughan;verbo;ter a coragem, a ousadia.;arriscar-se, aventurar-se, ousar.</item>
+        <item>Você nunca vai chegar ao seu :destino: se você parar e atirar pedras em cada cão que late.;Winston Churchill;substantivo masculino;objetivo ou fim para o qual se reserva algo;acaso,acerto.</item>
+        <item>Ao fim do dia, podemos :aguentar: muito mais do que pensamos que podemos;Frida Kahlo;verbo;sustentar ou suportar;suportar, arcar, aturar</item>
+        <item>Não há saber mais ou saber menos: há :saberes: diferentes;Paulo Freire;substantivo masculino;conjunto de conhecimentos sobre algo ou alguém;conseguires, poderes, seres capaz.</item>
+        <item>Você não crescerá a não ser que tente algo além :daquilo: que já domina;Ronald Osborn;contração;de algo a que se referiu num momento bastante anterior ao momento da fala.;daquela, daquele.</item>
+
+
     </string-array>
 
+    <string-array name="coerencia_sentences_very_hard">
+        <item>Você pode encarar um erro como uma :besteira: a ser esquecida, ou como um resultado que aponta uma nova direção.;Bill Gates;substantivo feminino;ato ou dito próprio de besta (ignorante ou falto de inteligência);asneira, asneirada, asnice, babaquice.</item>
+        <item>É preciso ser :protagonista:. Não dá para ficar só ouvindo a banda passar, temos de ser parte da banda;Sônia Hess;adjetivo e substantivo de dois gêneros;diz-se de ou indivíduo que tem papel de destaque num acontecimento.;principal, ativo, determinante.</item>
+        <item>A maior :recompensa: pelo trabalho não é o que a pessoa ganha, é o que ela se torna através dele;John Ruskin;substantivo feminino;aquilo que se concede ou obtém como reparação ou compensação de um prejuízo, perda, ofensa;recompensação, pagamento, amenta.</item>
+        <item>Não encontre defeitos, encontre soluções. Qualquer um sabe :queixar-se:.;Henry Ford;verbo;demonstrar descontentamento, desgosto; lamentar-se;lamentar-se, lastimar-se, lamuriar-se.</item>
+        <item>Em todas as :situações:, deve-se considerar o objetivo;Jean de La Fontaine;substantivo feminino;estado ou condição de caráter econômico, profissional, social, afetivo;circunstância, condição.</item>
+        <item>Você pode ficar :desapontado: se falhar, mas já está derrotado se não tentar.;Beverly Sills;adjetivo;enganado, iludido em seus desejos e/ou expectativas;decepcionado, desiludido, logrado.</item>
+        <item>Não ergas um edifício sem fortes :alicerces: ou viverás com medo;Sabedoria Persa;substantivo masculino;aquilo que serve de base, fundamento ou sustentáculo a qualquer coisa;abertura, base, começo, criação.</item>
+        <item>Esforce-se para não ser um sucesso, mas sim para ser :valioso:.;Albert Einstein;adjetivo;que tem grande valor monetário;valedouro, vultoso.</item>
+        <item>Certifique-se de que suas palavras e seus atos estão em :harmonia:.;Claus Moller;substantivo feminino;combinação de elementos ligados por uma relação de pertinência, que produz uma sensação agradável e de prazer.;conformidade, equilíbrio, igualdade.</item>
+        <item>Aprendi a aceitar desafios que nunca pensei fazer antes. Sucesso e conforto não podem :coexistir:.;Ginni Rometty;verbo;existir junta ou simultaneamente;coincidir, coocorrer, concorrer.</item>
+    </string-array>
 
     <string-array name="coerencia_random_words">
         <item>abster</item>
@@ -629,7 +670,6 @@
         <item>esporádico</item>
         <item>espúrio</item>
         <item>essência</item>
-        <item>essencial</item>
         <item>estabelecer</item>
         <item>estabilidade</item>
         <item>estagnado</item>
@@ -1442,7 +1482,6 @@
         <item>moleque</item>
         <item>molestar</item>
         <item>moléstia</item>
-        <item>momento</item>
         <item>monopólio</item>
         <item>monossilábico</item>
         <item>monotonia</item>
@@ -2134,7 +2173,6 @@
         <item>subsídio</item>
         <item>subsistência</item>
         <item>subsistir</item>
-        <item>substancial</item>
         <item>substantivo</item>
         <item>subterfúgio</item>
         <item>subversivo</item>
@@ -2633,6 +2671,5 @@
         <item>zurro</item>
         <item>zurzir</item>
     </string-array>
-
 
 </resources>

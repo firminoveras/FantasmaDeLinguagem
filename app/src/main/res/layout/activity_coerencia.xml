@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".CoerenciaActivity"
-    tools:ignore="HardcodedText, ContentDescription">
+    tools:ignore="ContentDescription,HardcodedText,Overdraw">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,14 +33,14 @@
         <TextView
             android:id="@+id/Coerencia_Pontos"
             android:layout_width="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:minWidth="120dp"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/bg_acentuacao_key_bg"
             android:backgroundTint="@color/background"
             android:gravity="center"
+            android:minWidth="120dp"
             android:padding="6dp"
             android:text="0"
             android:textColor="@color/white"
@@ -95,7 +95,6 @@
             app:drawableTint="@color/foreground" />
 
         <ScrollView
-            android:id="@+id/Coerencia_Text_Lay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/Coerencia_Tip_Lay"
@@ -117,7 +116,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:padding="12dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -139,9 +139,10 @@
             android:id="@+id/Coerencia_Tip_Lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/Coerencia_Words_Ball_Lay"
+            android:layout_above="@+id/Coerencia_Layout_Tips"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/bg_splash_button"
             android:backgroundTint="@color/foreground"
             android:gravity="center"
@@ -166,6 +167,57 @@
 
 
         </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/Coerencia_Layout_Tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Coerencia_Words_Ball_Lay"
+            android:layout_alignStart="@+id/Coerencia_Tip_Lay"
+            android:layout_alignEnd="@+id/Coerencia_Tip_Lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Coerencia_Button_Tip1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_square_ripple"
+                android:backgroundTint="@color/foreground"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="Desbloquear\nSignificado"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_tip" />
+
+            <TextView
+                android:id="@+id/Coerencia_Button_Tip2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_square_ripple"
+                android:backgroundTint="@color/foreground"
+                android:clickable="true"
+                android:drawablePadding="6dp"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="Desbloquear\nSinônimo"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_tip" />
+        </LinearLayout>
+
 
         <FrameLayout
             android:id="@+id/Coerencia_Words_Ball_Lay"
@@ -250,84 +302,6 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start">
-
-                <TextView
-                    android:id="@+id/Coerencia_Button_Tip1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_button_square_ripple"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:paddingStart="6dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="6dp"
-                    android:paddingBottom="18dp"
-                    android:text="Desbloquear\nSignificado"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_acentuacao_key_bg"
-                    android:backgroundTint="@color/red"
-                    android:elevation="8dp"
-                    android:gravity="center"
-                    android:padding="6dp"
-                    android:text="-50%"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    app:layout_anchor="@id/Coerencia_Button_Tip1"
-                    app:layout_anchorGravity="bottom|center_horizontal" />
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end">
-
-                <TextView
-                    android:id="@+id/Coerencia_Button_Tip2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_button_square_ripple"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:paddingStart="6dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="6dp"
-                    android:paddingBottom="18dp"
-                    android:text="Desbloquear\nSinônimo"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_acentuacao_key_bg"
-                    android:backgroundTint="@color/red"
-                    android:elevation="8dp"
-                    android:gravity="center"
-                    android:padding="6dp"
-                    android:text="-50%"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    app:layout_anchor="@id/Coerencia_Button_Tip2"
-                    app:layout_anchorGravity="bottom|center_horizontal" />
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
             <TextView
                 android:id="@+id/Coerencia_Label_LosePoints"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".AcentuacaoActivity"
-    tools:ignore="ContentDescription, HardcodedText">
+    tools:ignore="ContentDescription,HardcodedText,Overdraw">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -289,7 +289,6 @@
                     android:text="W" />
 
                 <TextView
-                    android:id="@+id/Acentuacao_Key_Vogal_E"
                     style="@style/acentuacao_key"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -318,7 +317,6 @@
                     android:text="Y" />
 
                 <TextView
-                    android:id="@+id/Acentuacao_Key_Vogal_U"
                     style="@style/acentuacao_key"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -326,7 +324,6 @@
                     android:text="U" />
 
                 <TextView
-                    android:id="@+id/Acentuacao_Key_Vogal_I"
                     style="@style/acentuacao_key"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -334,7 +331,6 @@
                     android:text="I" />
 
                 <TextView
-                    android:id="@+id/Acentuacao_Key_Vogal_O"
                     style="@style/acentuacao_key"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -363,7 +359,6 @@
                     android:layout_weight="1.05" />
 
                 <TextView
-                    android:id="@+id/Acentuacao_Key_Vogal_A"
                     style="@style/acentuacao_key"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"

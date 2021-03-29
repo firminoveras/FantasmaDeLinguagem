@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal|bottom"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_tutorial_gradient"
-        android:gravity="center"
+        android:background="@drawable/bg_tutorial_gradient_top"
         android:orientation="vertical"
+        android:paddingTop="160dp"
         android:paddingStart="12dp"
-        android:paddingBottom="12dp"
+        android:gravity="center"
         android:paddingEnd="12dp"
-        android:paddingTop="48dp"
+        android:paddingBottom="120dp"
         tools:ignore="UselessParent">
 
         <TextView
@@ -38,12 +38,13 @@
             android:textSize="16sp" />
 
         <Button
+
             android:id="@+id/Acentuacao_Tutorial_Next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:backgroundTint="@color/foreground"
             android:fontFamily="sans-serif-smallcaps"
+            android:backgroundTint="@color/foreground"
             android:text="Próximo"
             android:textAlignment="center"
             android:textColor="@android:color/white"

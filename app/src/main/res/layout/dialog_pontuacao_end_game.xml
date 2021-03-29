@@ -8,7 +8,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:ignore="ContentDescription, HardcodedText">
+    tools:ignore="ContentDescription,HardcodedText,Overdraw">
 
     <ImageView
         android:layout_width="match_parent"
@@ -70,31 +70,26 @@
             app:tabIndicatorColor="@color/background">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/Pontuacao_End_Tab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Frase 1\nFácil" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/Pontuacao_End_Tab2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Frase 2\nFácil" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/Pontuacao_End_Tab3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Frase 3\nMédia" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/Pontuacao_End_Tab4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Frase 4\nDifícil" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/Pontuacao_End_Tab5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Frase 5\nDifícil" />

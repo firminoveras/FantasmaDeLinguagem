@@ -2,26 +2,42 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Pontuacao_Root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".CoerenciaActivity"
-    tools:ignore="HardcodedText, ContentDescription, ButtonStyle">
+    tools:ignore="ButtonStyle,ContentDescription,HardcodedText,Overdraw">
 
     <RelativeLayout
-        android:gravity="center_horizontal"
-        android:padding="12dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_acentuacao_key_bg"
+            android:backgroundTint="@color/background_light"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="PONTOS"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/Pontuacao_Pontos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="18dp"
             android:layout_marginBottom="6dp"
-            android:background="@drawable/bg_button_square_ripple"
+            android:background="@drawable/bg_acentuacao_key_bg"
             android:backgroundTint="@color/background"
             android:gravity="center"
             android:minWidth="120dp"
@@ -30,25 +46,6 @@
             android:textColor="@color/white"
             android:textSize="34sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/Pontuacao_Pontos"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-16dp"
-            android:background="@drawable/bg_button_square_ripple"
-            android:backgroundTint="@color/background_light"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="PONTOS"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_anchor="@id/Pontuacao_Pontos"
-            app:layout_anchorGravity="center_horizontal" />
 
         <TextView
             android:id="@+id/Pontuacao_Text_Nivel"
@@ -82,8 +79,22 @@
             android:progress="1"
             android:progressTint="@color/background" />
 
+        <TextView
+            android:id="@+id/Pontuacao_HowPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Como Jogar"
+            android:textColor="@color/foreground"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_help"
+            app:drawableTint="@color/foreground" />
+
         <ScrollView
-            android:id="@+id/Pontuacao_Text_Lay"
+            android:elevation="2dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/Pontuacao_Finish_Layout"
@@ -130,6 +141,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/Pontuacao_Pontuacoes"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -137,42 +151,83 @@
                 android:id="@+id/Pontuacao_Button_Clear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
+                android:layout_marginEnd="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_round_red_button_ripple"
+                android:background="@drawable/bg_button_square_ripple"
+                android:backgroundTint="@color/foreground"
+                android:drawableStart="@drawable/ic_clear"
                 android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="32dp"
                 android:text="Limpar"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
+
+            <LinearLayout
+                android:background="@drawable/bg_button_square_ripple"
+                android:backgroundTint="@color/foreground"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minWidth="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Pontuacao_Win_Points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="500"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="PONTOS"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/Pontuacao_Button_Confirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
+                android:layout_marginStart="6dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_round_green_button_ripple"
+                android:background="@drawable/bg_button_square_ripple"
+                android:backgroundTint="@color/foreground"
+                android:drawableEnd="@drawable/ic_acentuacao_confirm"
+                android:drawableTint="@color/white"
                 android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:text="Confirmar"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
         <HorizontalScrollView
             android:id="@+id/Pontuacao_Pontuacoes"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/Pontuacao_Joystick"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="6dp"
+            android:layout_above="@+id/Pontuacao_Insert_Button_Description"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
             android:background="@drawable/bg_button_square_ripple"
             android:backgroundTint="#E3E3E3"
             android:elevation="2dp"
@@ -183,7 +238,9 @@
             <LinearLayout
                 android:id="@+id/Pontuacao_Select_Layout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -237,165 +294,143 @@
 
         </HorizontalScrollView>
 
-        <RelativeLayout
-            android:id="@+id/Pontuacao_Joystick"
-            android:layout_width="match_parent"
+        <TextView
+            android:elevation="4dp"
+            android:id="@+id/Pontuacao_Insert_Button_Description"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_label_invert"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_above="@+id/Pontuacao_Insert_Back2"
+            android:layout_marginBottom="3dp"
+            android:padding="6dp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Ponto e Vírgula"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/Pontuacao_Left_Back2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:alpha=".3"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/background" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
-            <ImageView
-                android:id="@+id/Pontuacao_Left_Back1"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="5dp"
-                android:alpha=".3"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/background" />
+        <ImageView
+            android:id="@+id/Pontuacao_Left_Back1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
-            <ImageView
-                android:id="@+id/Pontuacao_Left_Button"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_circle_ripple"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="18dp" />
+        <ImageView
+            android:id="@+id/Pontuacao_Left_Button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_circle_ripple"
+            android:elevation="4dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
+            android:src="@drawable/ic_left" />
 
-            <ImageView
-                android:id="@+id/Pontuacao_Left_Button_Icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:elevation="4dp"
-                android:paddingEnd="10dp"
-                android:src="@drawable/ic_left" />
+        <ImageView
+            android:id="@+id/Pontuacao_Insert_Back2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
-            <TextView
-                android:id="@+id/Pontuacao_Insert_Button_Description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/Pontuacao_Insert_Button"
-                android:layout_alignEnd="@+id/Pontuacao_Insert_Button"
-                android:fontFamily="sans-serif-smallcaps"
-                android:gravity="center"
-                android:text="Ponto e Vírgula"
-                android:layout_marginTop="6dp"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/Pontuacao_Insert_Back1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
+        <TextView
+            android:id="@+id/Pontuacao_Insert_Button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_circle_ripple"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:paddingBottom="22dp"
+            android:textColor="@color/background"
+            android:textSize="48sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/Pontuacao_Insert_Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Pontuacao_Insert_Button_Description"
-                android:layout_toStartOf="@+id/Pontuacao_Right_Back2"
-                android:layout_toEndOf="@+id/Pontuacao_Left_Back2"
-                android:background="@drawable/bg_round_green_button_ripple"
-                android:clickable="true"
-                android:focusable="true"
-                android:fontFamily="sans-serif-smallcaps"
-                android:gravity="center"
-                android:padding="6dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:text=";"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/Pontuacao_Tip_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignStart="@+id/Pontuacao_Insert_Back1"
+            android:layout_alignEnd="@+id/Pontuacao_Insert_Back1"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_button_square_ripple"
+            android:backgroundTint="@color/foreground"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="3dp"
+            android:src="@drawable/ic_tip" />
 
-            <TextView
-                android:id="@+id/Pontuacao_Win_Points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/Pontuacao_Insert_Button"
-                android:layout_centerHorizontal="true"
-                android:clickable="false"
-                android:focusable="false"
-                android:text="500"
-                android:textColor="@color/background"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/Pontuacao_Win_Points"
-                android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
-                android:clickable="false"
-                android:focusable="false"
-                android:text="PONTOS"
-                android:textColor="@color/background_light"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/Pontuacao_Right_Back1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:alpha=".3"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/background" />
 
+        <ImageView
+            android:id="@+id/Pontuacao_Right_Button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_circle_ripple"
+            android:elevation="4dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="0dp"
+            android:src="@drawable/ic_right" />
 
-            <ImageView
-                android:id="@+id/Pontuacao_Right_Back2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:alpha=".3"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/background" />
-
-            <ImageView
-                android:id="@+id/Pontuacao_Right_Back1"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="5dp"
-                android:alpha=".3"
-                android:background="@drawable/bg_circle"
-                android:backgroundTint="@color/background" />
-
-            <ImageView
-                android:id="@+id/Pontuacao_Right_Button"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_circle_ripple"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="18dp" />
-
-            <ImageView
-                android:id="@+id/Pontuacao_Right_Button_Icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:elevation="4dp"
-                android:paddingStart="4dp"
-                android:src="@drawable/ic_right" />
-
-        </RelativeLayout>
     </RelativeLayout>
 
     <LinearLayout

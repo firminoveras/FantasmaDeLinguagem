@@ -79,6 +79,7 @@ public class MenuActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             startActivity(intent);
             overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+            finish();
         }, 1200);
     }
 
