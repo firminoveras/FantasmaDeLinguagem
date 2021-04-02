@@ -1,64 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string-array name="pontuacao_easy">
         <item>O importante não é vencer todos os dias, mas lutar sempre.#Waldemar Valle Martins</item>
         <item>Perder para a razão, sempre é ganhar.#Aldo Novak</item>
         <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.#Fran Lebowitz</item>
+        <item>Eduquem as crianças, para que não seja necessário punir os adultos.#Pitágoras</item>
+        <item tools:ignore="TypographyEllipsis">O que faz andar o barco não é a vela enfunada, mas o vento que não se vê...#Platão</item>
+        <item>O ignorante afirma, o sábio duvida, o sensato reflete.#Aristóteles</item>
+        <item>O sábio nunca diz tudo o que pensa, mas pensa sempre tudo o que diz.#Aristóteles</item>
+        <item>Exige muito de ti e espera pouco dos outros. Assim, evitarás muitos aborrecimentos.#Confúcio</item>
+        <item>Não tentes ser bem-sucedido, tenta antes ser um homem de valor.#Albert Einstein</item>
+        <item>Duas coisas são infinitas: o universo e a estupidez humana. Mas, em relação ao universo, ainda não tenho certeza absoluta.#Albert Einstein</item>
+        <item>O mundo não está ameaçado pelas pessoas más, e sim por aquelas que permitem a maldade.#Albert Einstein</item>
+        <item>Aja antes de falar e, portanto, fale de acordo com os seus atos.#Confúcio</item>
+        <item>Mesmo desacreditado e ignorado por todos, não posso desistir, pois para mim, vencer é nunca desistir.#Albert Einstein</item>
+        <item>Sejam as leis claras, uniformes e precisas, porque interpretá-las, quase sempre, é o mesmo que corrompê-las.#Voltaire</item>
+        <item>Ensinar não é uma função vital, porque não tem o fim em si mesmo, a função vital é aprender.#Aristóteles</item>
+        <item>Se, a princípio, a ideia não é absurda, então não há esperança para ela.#Albert Einstein</item>
+        <item>Se queres prever o futuro, estuda o passado.#Confucio</item>
+        <item>Conquistar não é suficiente. É preciso saber seduzir.#Voltaire</item>
+        <item>Escuta e serás sábio. O começo da sabedoria é o silêncio.#Pitágoras</item>
+        <item>Eu não procuro saber as respostas, procuro compreender as perguntas.#Confúcio</item>
     </string-array>
 
     <string-array name="pontuacao_medium">
-        <item>O importante não é vencer todos os dias, mas lutar sempre.#Waldemar Valle Martins</item>
-        <item>Perder para a razão, sempre é ganhar.#Aldo Novak</item>
-        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.#Fran Lebowitz</item>
+        <item>Só existe um êxito: a capacidade de levar a vida que se quer.#Cristopher Morley</item>
+        <item>Pedras no caminho? Eu guardo todas. Um dia vou construir um castelo.#Nemo Nox</item>
+        <item>Aprenda a valorizar a si mesmo, o que significa: lute pela sua felicidade.#Ayn Rand</item>
+        <item tools:ignore="TypographyEllipsis">Só Deus tem as respostas... O resto são perguntas imperfeitas!#Daniele Souza Silva</item>
+        <item>Pra que procurar as respostas se somos nós que fazemos as perguntas?#Pablo O. Pimentel</item>
+        <item>Que vantagem têm os mentirosos? A de não serem acreditados quando dizem a verdade.#Aristóteles</item>
+        <item>Lute pelo que quer assim como luta pela própria vida! Pois só assim poderá dizer que viveu.#Diego Ferreira</item>
+        <item>Eu acredito, eu luto até o fim: não há como perder, não há como não vencer.#Oleg Taktarov</item>
+        <item>Para quê preocuparmo-nos com a morte? A vida tem tantos problemas que temos de resolver primeiro.#Confúcio</item>
+        <item>Para a maioria, quão pequena é a porção de prazer que basta para fazer a vida agradável!#Friedrich Nietzsche</item>
+        <item>O mestre disse: Quem se modera, raramente se perde.#Confúcio</item>
+        <item>Este é o único motivo pelo qual não nos podemos queixar da vida: ela não segura ninguém.#Sêneca</item>
+        <item>Você vive hoje uma vida que gostaria de viver por toda a eternidade?#Friedrich Nietzsche</item>
+        <item>Um pensamento, até mesmo uma possibilidade, pode nos destruir e nos transformar.#Friedrich Nietzsche</item>
+        <item>E está justamente aí o gênio: a inteligência que conhece suas fronteiras.#Albert Camus</item>
     </string-array>
 
     <string-array name="pontuacao_hard">
-        <item>O importante não é vencer todos os dias, mas lutar sempre.#Waldemar Valle Martins</item>
-        <item>Perder para a razão, sempre é ganhar.#Aldo Novak</item>
-        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.#Fran Lebowitz</item>
+        <item>Mas é preciso acrescentar "em uma vida inteira", pois uma andorinha não faz verão, nem um dia tampouco; e da mesma forma um só dia, ou um curto espaço de tempo, não faz um homem feliz e venturoso.#Aristóteles</item>
+        <item>Quando vires um homem bom, tenta imitá-lo; quando vires um homem mau, examina-te a ti mesmo.#Confúcio</item>
+        <item>A filosofia que cultivo não é nem tão bárbara nem tão inacessível que rejeite as paixões; pelo contrário, é só nelas que reside a doçura e felicidade da vida.#René Descartes</item>
+        <item>É verdade que se mente com a boca; mas a careta que se faz ao mesmo tempo diz, apesar de tudo, a verdade.#Friedrich Nietzsche</item>
+        <item>Você já leu a Bíblia, Rick? Eu conheço uma passagem que você vai gostar: Ezequiel 25:17.#Pulp Fiction: Tempo de Violência (1994)</item>
+        <item>Se queres conhecer o passado, examina o presente que é o resultado; se queres conhecer o futuro, examina o presente que é a causa.#Confúcio</item>
+        <item>Você é a resposta para todas as minhas orações. Você é uma canção, um sonho, um murmúrio, e não sei como consegui viver sem você durante tanto tempo.#Querido John</item>
+        <item>Você não ouve, né? Você apenas faz as mesmas perguntas toda semana. “Como está o trabalho?” “Está tendo pensamentos negativos?” Só o que eu tenho são pensamentos negativos.#Coringa (filme)</item>
+        <item>O mestre disse a um dos seus alunos: Yu, queres saber em que consiste o conhecimento? Consiste em ter consciência tanto de conhecer uma coisa quanto de não a conhecer. Este é o conhecimento.#Confúcio</item>
+        <item>A vida não é justa, não é, amiguinho? Enquanto uns nascem para o banquete, outros passam a vida na escuridão, implorando por restos.#O Rei Leão (filme)</item>
+        <item>O pior inimigo, todavia, que podes encontrar, és tu mesmo! Lança-te a ti próprio nas cavernas e nos bosques. Solitário, tu segues o caminho que te conduz a ti mesmo! E o teu caminho passa por diante de ti e dos teus sete demônios.#Friedrich Nietzsche</item>
+        <item>A condição de um homem superior é tripla; virtuoso, ele está livre das ansiedades; sábio, ele está livre das perplexidades; corajoso, ele está livre do medo.#Confúcio</item>
+        <item>Querem que vos ensine o modo de chegar à ciência verdadeira? Aquilo que se sabe, saber que se sabe; aquilo que não se sabe, saber que não se sabe; na verdade é este o saber.#Confúcio</item>
+        <item>Evitem o martírio! O sofrimento "pela verdade"! E até mesmo a defesa de si! Corrompe a inocência e a sutil neutralidade da sua consciência.#Nietzsche</item>
     </string-array>
 
     <string-array name="pontuacao_very_hard">
-        <item>O importante não é vencer todos os dias, mas lutar sempre.#Waldemar Valle Martins</item>
-        <item>Perder para a razão, sempre é ganhar.#Aldo Novak</item>
-        <item>Loteria: acho que, jogando ou não, você tem a mesma chance de ganhar.#Fran Lebowitz</item>
+        <item>Felicidade é como uma borboleta: quanto mais você tenta apanhá-la, mais ela se afasta de você. Mas se você dirigir sua atenção para outras coisas, ela virá e pousará suavemente no seu ombro.#Henry Thoreau</item>
+        <item>Estou longe de conhecer o ateísmo na condição de resultado, menos ainda como conhecimento: em mim ele é compreensível na qualidade de instinto.#Friedrich Nietzsche</item>
+        <item>Há três métodos para ganhar sabedoria: primeiro, por reflexão, que é o mais nobre; segundo, por imitação, que é o mais fácil; e terceiro, por experiência, que é o mais amargo.#Confúcio</item>
+        <item>Para resolver qualquer problema, aqui estão três perguntas a perguntar-se: Primeiro, o que eu poderia fazer? Em segundo lugar, o que eu poderia ler? E terceiro, a quem eu poderia pedir?#Jim Rohn</item>
+        <item>Antes, a questão era descobrir se a vida precisava ter algum significado para ser vivida. Agora, ao contrário, ficou evidente que ela será vivida melhor se não tiver significado.#Albert Camus</item>
+        <item>Obediência: Religião dos escravos. Religião de morte intelectual. Gosto dela. Não faça perguntas, não pense, obedeça a Palavra do Senhor – que foi convenientemente trazida à você por um cara num Rolls Royce com um Rolex pesado no seu pulso. Eu gosto desse trabalho! Onde me inscrevo?#Oleg Kiselev</item>
+        <item>A excelência nunca é um acidente. É sempre o resultado de alta intenção, esforço sincero, inteligência e execução; representa a escolha sábia entre muitas alternativas – escolha, não acaso, determina o seu destino.#Aristóteles</item>
+        <item>Quanto mais uma coisa é comum a um maior número, menos cuidado recebe. Cada um preocupa-se sobretudo com o que é seu, quanto ao que é comum, preocupa-se menos, ou apenas na medida do seu interesse particular.#Aristóeles</item>
+        <item>Anteriormente, rodando ao acaso e pensando que fazia alguma coisa, eu era mais miserável que qualquer outro, e não menos que tu agora, se crês que tudo se deve fazer de preferência à filosofia.#Platão</item>
+        <item>A dor é sua e precisa suportar até o final para ter o benefício da transformação! É na dor que descobrimos nossos verdadeiros sentimentos e capacidades. É na dor que o guerreiro decide empunhar sua espada, e como o fogo, tudo purifica.#Shihan Cicero Melo</item>
+        <item>Conheço a minha sina. Um dia, meu nome será ligado à lembrança de algo tremendo - de uma crise como jamais houve sobre a Terra, da mais profunda colisão de consciência, de uma decisão conjurada contra tudo o que até então foi acreditado, santificado, querido. Eu não sou um homem, sou dinamite.#Friedrich Nietzsche</item>
+        <item>Não há sentimento que alcance um coração duro e pequeno; nem sabedoria que toque uma mente fechada; tampouco calor humano que aqueça uma alma vazia. O mérito do aprendizado será sempre de quem permitiu-se afetar.#Sócrates Magno Torres</item>
+        <item>O inútil vive de ódio; o hipócrita vive de mentiras; o idiota vive de ignorância, mas o humilde vive de amor, verdades e sabedoria.#Cícero Rodrigues</item>
+        <item>Todas as palavras não foram feitas para os que são pesados? Não mentem todas as palavras ao que é leve? Canta! Não fales mais!Nietzsche</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_ponto">
-        <item>dica ponto 1.#Referencia</item>
-        <item>dica ponto 2.#Referencia</item>
-        <item>dica ponto 3.#Referencia</item>
+    <string-array name="pontuacao_tip_ponto">
+        <item>Usa-se o ponto para separar períodos entre si.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>Usa-se o ponto para indicar o final de uma frase declarativa, ou seja, frases que informam ou declaram alguma coisa. Essas frases podem ser afirmativas ou negativas.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_virgula">
-        <item>dica virgula 1.#Referencia</item>
-        <item>dica virgula 2.#Referencia</item>
-        <item>dica virgula 3.#Referencia</item>
+    <string-array name="pontuacao_tip_virgula">
+        <item>Não se usa a vírgula entre os elementos da estrutura básica.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>A vírgula pode ser empregada para separar os itens de uma enumeração.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>Usa-se a vírgula para marcar uma informação adicional inserida no início ou no final da ideia principal.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>A vírgula pode ser empregada para separar orações coordenadas.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_doispontos">
-        <item>dica doispontos 1.#Referencia</item>
-        <item>dica doispontos 2.#Referencia</item>
-        <item>dica doispontos 3.#Referencia</item>
+    <string-array name="pontuacao_tip_doispontos">
+        <item>Usa-se dois-pontos antes de apostos ou orações apositivas,enumerações ou sequência de palavras que explicam e/ou resumem idéias anteriores.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>O dois-pontos costuma ser usado para introduzir uma citaçao formal, quando reproduzimos textualmente as palavras de seu autor, que é distinta da citação conceptual.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>Podemos usar o dois-pontos para introduzir uma oração que tem uma relação de causa ou de consequência com a anterior.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se dois-pontos para seguir nos exemplos.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_pontoevirgula">
-        <item>dica pontovirgula 1.#Referencia</item>
-        <item>dica pontovirgula 2.#Referencia</item>
-        <item>dica pontovirgula 3.#Referencia</item>
+    <string-array name="pontuacao_tip_pontoevirgula">
+        <item>Usa-se o ponto e vírgula para pontuar uma enumeração cujos elementos já contenham vírgula.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se o ponto e vírgula para separar orações coordenadas muito extensas ou orações coordenadas nas quais já tenha sido utilizada a vírgula.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se o ponto e vírgula para separar orações introduzidas por conjunções pospositivas.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>O ponto e vírgula pode vir a substituir a vírgula, a fim de se ter uma pausa um pouco mais longa. Isso acontece antes das conjunções adversativas (contudo, mas, porém, entretanto, todavia).#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_exclamacao">
-        <item>dica exclamacao 1.#Referencia</item>
-        <item>dica exclamacao 2.#Referencia</item>
-        <item>dica exclamacao 3.#Referencia</item>
+    <string-array name="pontuacao_tip_exclamacao">
+        <item>Usa-se exclamação após imperativo. modo imperativo expressa ordem, pedido ou conselho.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se exclamação após vocativo. O vocativo é o único termo isolado na oração, pois não se liga ao sujeito. Sua função é chamar ou interpelar o elemento a quem se está dirigindo a oração.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se exclamação após interjeição. A interjeição é o vocábulo de representação das emoções ou sensações dos falantes.#BECKER, Howard. Truques da escrita: Para começar e terminar teses, livros e artigos. Editora Zahar, 2015.</item>
+        <item>Usa-se exclamação  quando se há linguagem escrita de grande expressividade.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
-    <string-array name="pontuacao_dica_interrogacao">
-        <item>dica interrogacao 1.#Referencia</item>
-        <item>dica interrogacao 2.#Referencia</item>
-        <item>dica interrogacao 3.#Referencia</item>
+    <string-array name="pontuacao_tip_interrogacao">
+        <item>As perguntas diretas são assinaladas com um ponto de interrogação.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
+        <item>Usa-se a interrogação em perguntas curtas que usamos no final de uma frase declarativa para confirmar ou reforçar o que afirmamos.#MORENO, Claudio. Guia Prático do Português Correto: Pontuação. Editora L&amp;PM, 2010.</item>
     </string-array>
 
 </resources>

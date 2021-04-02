@@ -44,22 +44,24 @@ import java.util.stream.Collectors;
 
 public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
+    private final int[] mAllWinPointsPerRound = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private final String[] mAllRoundsCorrectAswers = {"???", "???", "???", "???", "???", "???", "???", "???", "???", "???"};
+    private int mRound = 0;
+    private int mPoints = 0;
+    private int mWinPoints = 0;
+    private boolean mTipBuyed = false;
+
     private Timer timer;
     private String[] roundWords;
     private TextToSpeech mSpeak;
-    private int mPoints = 0;
-    private int mRound = 0;
-    private int mWinPoints = 200;
-    private final int[] mRoundPoints = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    private boolean mTipBuyed = false;
 
     private TextView mTextWinPoints;
-    private LinearLayout mLoadingLayout;
     private TextView mTextRound;
     private TextView mTextDifficult;
     private TextView mResposta;
-    private ProgressBar mRoundProgress;
     private ImageView mBuyTipButton;
+    private ProgressBar mRoundProgress;
+    private LinearLayout mLoadingLayout;
 
     private MediaPlayer mSucessSound;
     private MediaPlayer mFailSound;
@@ -126,15 +128,14 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
             }
         });
 
-        mBuyTipButton.setOnClickListener(v -> showDialogTip());
+        mBuyTipButton.setOnClickListener(v -> showTip());
 
         Handler handler = new Handler();
         findViewById(R.id.Acentuacao_Speak_Button).setOnClickListener(v -> {
             v.setEnabled(false);
+
             mSpeak.speak(roundWords[mRound - 1], TextToSpeech.QUEUE_FLUSH, null, null);
-
             findViewById(R.id.Acentuacao_Speak_Button_Icon).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_speak_anim));
-
             if (mWinPoints >= 50 && timer != null) changeWinPoints(-50);
             if (timer == null) {
                 timer = new Timer(false);
@@ -163,8 +164,9 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
                     ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(500);
                     mPoints += mWinPoints;
                     mTextWinPoints.setText(String.valueOf(mPoints));
-                    mRoundPoints[mRound - 1] = mWinPoints;
+                    mAllWinPointsPerRound[mRound - 1] = mWinPoints;
                     mSucessSound.start();
+                    mAllRoundsCorrectAswers[mRound - 1] = roundWords[mRound - 1];
                     startNextRound();
                 } else {
                     ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(new long[]{50, 100, 100, 500}, -1);
@@ -228,11 +230,6 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
     }
 
     @Override
-    public void onInit(int status) {
-
-    }
-
-    @Override
     public void onBackPressed() {
         View alertContent = getLayoutInflater().inflate(R.layout.dialog_exit_game_confirm, findViewById(R.id.ExitConfirm_Root));
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -260,6 +257,37 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
             }, 1000);
         });
     }
+
+    @Override
+    public void onInit(int status) {
+        if(status == TextToSpeech.ERROR){
+            View alertContent = getLayoutInflater().inflate(R.layout.dialog_error_game, findViewById(R.id.Error_Root));
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setView(alertContent);
+            Dialog dialog = alert.show();
+            dialog.setCancelable(false);
+            alertContent.findViewById(R.id.Error_Confirm).setOnClickListener(v -> {
+                getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background, null));
+                dialog.dismiss();
+                mLoadingLayout.setVisibility(View.VISIBLE);
+                ValueAnimator anim = ValueAnimator.ofInt(1, getResources().getDisplayMetrics().heightPixels * 2);
+                anim.addUpdateListener(animation -> {
+                    ViewGroup.LayoutParams params = mLoadingLayout.getLayoutParams();
+                    params.height = (int) animation.getAnimatedValue();
+                    params.width = (int) animation.getAnimatedValue();
+                    mLoadingLayout.setLayoutParams(params);
+                });
+                anim.setDuration(1000);
+                anim.start();
+                new Handler().postDelayed(() -> {
+                    super.onBackPressed();
+                    startActivity(new Intent(AcentuacaoActivity.this, MenuActivity.class));
+                    overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+                }, 1000);
+            });
+        }
+    }
+
 
     private void initKeyboard() {
         LinearLayout[] keyboardLines = {
@@ -365,6 +393,70 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
         });
     }
 
+    private void showTip() {
+        if (!mTipBuyed) {
+            View alertContent = getLayoutInflater().inflate(R.layout.dialog_buy_tip_confirm, findViewById(R.id.BuyConfirm_Root));
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setView(alertContent);
+            Dialog dialog = alert.show();
+            dialog.setCancelable(false);
+            alertContent.findViewById(R.id.BuyConfirm_No).setOnClickListener(v -> dialog.dismiss());
+            alertContent.findViewById(R.id.BuyConfirm_Yes).setOnClickListener(v -> {
+                int tipId;
+                if (roundWords[mRound - 1].toUpperCase().contains("Á") ||
+                        roundWords[mRound - 1].toUpperCase().contains("É") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Í") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ó") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ú"))
+                    tipId = R.array.acentuacao_tip_agudo;
+                else if (roundWords[mRound - 1].toUpperCase().contains("À") ||
+                        roundWords[mRound - 1].toUpperCase().contains("È") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ì") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ò") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ù"))
+                    tipId = R.array.acentuacao_tip_crase;
+                else if (roundWords[mRound - 1].toUpperCase().contains("Â") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ê") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Î") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Ô") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Û"))
+                    tipId = R.array.acentuacao_tip_circunflexo;
+                else if (roundWords[mRound - 1].toUpperCase().contains("Ã") ||
+                        roundWords[mRound - 1].toUpperCase().contains("Õ"))
+                    tipId = R.array.acentuacao_tip_til;
+                else tipId = R.array.acentuacao_tip_generic;
+                String[] tip = getResources().getStringArray(tipId)[new Random().nextInt(getResources().getStringArray(tipId).length - 1)].split("#");
+
+                View tipAlertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
+                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText(tip[0]);
+                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText(tip[1]);
+                AlertDialog.Builder tipAlert = new AlertDialog.Builder(this);
+                tipAlert.setView(tipAlertContent);
+                tipAlert.show();
+
+                mBuySound.start();
+                dialog.dismiss();
+                mTipBuyed = true;
+                mBuyTipButton.setEnabled(false);
+                mBuyTipButton.setAlpha(0.5f);
+                changeWinPoints(-(mWinPoints / 2));
+            });
+        }
+    }
+
+    private void changeWinPoints(int change) {
+        mWinPoints += change;
+        ((TextView) findViewById(R.id.Acentuacao_Pontos_Valendo)).setText(String.format(Locale.getDefault(), "%d Pontos", mWinPoints));
+
+        ((TextView) findViewById(R.id.Acentuacao_SpreakCount)).setText(String.format("%s %s pontos", change >= 0 ? "+" : "", change));
+        findViewById(R.id.Acentuacao_SpreakCount).setBackgroundTintList(ColorStateList.valueOf(getColor(change >= 0 ? R.color.green : R.color.red)));
+
+        ValueAnimator anim = ValueAnimator.ofFloat(1.0f, 0);
+        anim.addUpdateListener(animation -> findViewById(R.id.Acentuacao_SpreakCount).setAlpha((Float) animation.getAnimatedValue()));
+        anim.setDuration(1000);
+        anim.start();
+    }
+
     private void startNextRound() {
         if (timer != null) timer.cancel();
         timer = null;
@@ -396,17 +488,31 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
 
     }
 
-    private void changeWinPoints(int change) {
-        mWinPoints += change;
-        ((TextView) findViewById(R.id.Acentuacao_Pontos_Valendo)).setText(String.format(Locale.getDefault(), "%d Pontos", mWinPoints));
+    private void showHowToPlay() {
+        String[] helpStrings = getResources().getStringArray(R.array.tutorial_acentuacao);
+        List<Target> targetList = new ArrayList<>();
 
-        ((TextView) findViewById(R.id.Acentuacao_SpreakCount)).setText(String.format("%s %s pontos", change >= 0 ? "+" : "", change));
-        findViewById(R.id.Acentuacao_SpreakCount).setBackgroundTintList(ColorStateList.valueOf(getColor(change >= 0 ? R.color.green : R.color.red)));
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Text_Nivel_Dificuldade), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Speak_Button), 200f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Pontos_Valendo), 120f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Text_Resposta), 140f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Pontos), 200f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Button_Buy_Tip), 100f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Keyboard_Confirm), 100f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Button_Pass), 100f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
 
-        ValueAnimator anim = ValueAnimator.ofFloat(1.0f, 0);
-        anim.addUpdateListener(animation -> findViewById(R.id.Acentuacao_SpreakCount).setAlpha((Float) animation.getAnimatedValue()));
-        anim.setDuration(1000);
-        anim.start();
+        Spotlight spotlight = new Spotlight.Builder(this)
+                .setTargets(targetList)
+                .setBackgroundColor(getColor(R.color.spotlightBackground))
+                .setDuration(1000L)
+                .setAnimation(new DecelerateInterpolator(2f))
+                .setContainer(findViewById(R.id.Acentuacao_Root))
+                .build();
+
+        spotlight.start();
+
+        for (int index = 0; index < targetList.size(); index++)
+            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
     }
 
     private void endGame(boolean win) {
@@ -416,27 +522,27 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
 
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Text)).setText(win ? "Você chegou até o final!" : "Não foi dessa vez!");
 
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word1)).setText(roundWords[0]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word2)).setText(roundWords[1]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word3)).setText(roundWords[2]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word4)).setText(roundWords[3]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word5)).setText(roundWords[4]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word6)).setText(roundWords[5]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word7)).setText(roundWords[6]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word8)).setText(roundWords[7]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word9)).setText(roundWords[8]);
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word10)).setText(roundWords[9]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word1)).setText(mAllRoundsCorrectAswers[0]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word2)).setText(mAllRoundsCorrectAswers[1]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word3)).setText(mAllRoundsCorrectAswers[2]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word4)).setText(mAllRoundsCorrectAswers[3]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word5)).setText(mAllRoundsCorrectAswers[4]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word6)).setText(mAllRoundsCorrectAswers[5]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word7)).setText(mAllRoundsCorrectAswers[6]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word8)).setText(mAllRoundsCorrectAswers[7]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word9)).setText(mAllRoundsCorrectAswers[8]);
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Word10)).setText(mAllRoundsCorrectAswers[9]);
 
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point1)).setText(String.valueOf(mRoundPoints[0]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point2)).setText(String.valueOf(mRoundPoints[1]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point3)).setText(String.valueOf(mRoundPoints[2]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point4)).setText(String.valueOf(mRoundPoints[3]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point5)).setText(String.valueOf(mRoundPoints[4]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point6)).setText(String.valueOf(mRoundPoints[5]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point7)).setText(String.valueOf(mRoundPoints[6]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point8)).setText(String.valueOf(mRoundPoints[7]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point9)).setText(String.valueOf(mRoundPoints[8]));
-        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point10)).setText(String.valueOf(mRoundPoints[9]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point1)).setText(String.valueOf(mAllWinPointsPerRound[0]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point2)).setText(String.valueOf(mAllWinPointsPerRound[1]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point3)).setText(String.valueOf(mAllWinPointsPerRound[2]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point4)).setText(String.valueOf(mAllWinPointsPerRound[3]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point5)).setText(String.valueOf(mAllWinPointsPerRound[4]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point6)).setText(String.valueOf(mAllWinPointsPerRound[5]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point7)).setText(String.valueOf(mAllWinPointsPerRound[6]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point8)).setText(String.valueOf(mAllWinPointsPerRound[7]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point9)).setText(String.valueOf(mAllWinPointsPerRound[8]));
+        ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Point10)).setText(String.valueOf(mAllWinPointsPerRound[9]));
 
         ((TextView) alertContent.findViewById(R.id.Acentuacao_End_Points)).setText(String.valueOf(mPoints));
 
@@ -455,61 +561,6 @@ public class AcentuacaoActivity extends AppCompatActivity implements TextToSpeec
             startActivity(new Intent(AcentuacaoActivity.this, MenuActivity.class));
             finish();
         });
-    }
-
-    private void showHowToPlay() {
-        String[] helpStrings = getResources().getStringArray(R.array.tutorial_acentuacao);
-        List<Target> targetList = new ArrayList<>();
-
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Text_Nivel_Dificuldade), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1], R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Speak_Button), 200f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Pontos_Valendo), 120f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Text_Resposta), 140f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Pontos), 200f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Button_Buy_Tip), 100f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Keyboard_Confirm), 100f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Acentuacao_Button_Pass), 100f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1],R.layout.tutorial_acentuacao).getTarget());
-
-        Spotlight spotlight = new Spotlight.Builder(this)
-                .setTargets(targetList)
-                .setBackgroundColor(getColor(R.color.spotlightBackground))
-                .setDuration(1000L)
-                .setAnimation(new DecelerateInterpolator(2f))
-                .setContainer(findViewById(R.id.Acentuacao_Root))
-                .build();
-
-        spotlight.start();
-
-        for (int index = 0; index < targetList.size(); index++)
-            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
-    }
-
-    private void showDialogTip() {
-        if (!mTipBuyed) {
-            View alertContent = getLayoutInflater().inflate(R.layout.dialog_buy_tip_confirm, findViewById(R.id.BuyConfirm_Root));
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setView(alertContent);
-            Dialog dialog = alert.show();
-            dialog.setCancelable(false);
-            alertContent.findViewById(R.id.BuyConfirm_No).setOnClickListener(v -> dialog.dismiss());
-            alertContent.findViewById(R.id.BuyConfirm_Yes).setOnClickListener(v -> {
-
-                //TODO: Dicas
-                View tipAlertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
-                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText("TESTEEEE");
-                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText("ASDASDASDASD");
-                AlertDialog.Builder tipAlert = new AlertDialog.Builder(this);
-                tipAlert.setView(tipAlertContent);
-                tipAlert.show();
-
-                mBuySound.start();
-                dialog.dismiss();
-                mTipBuyed = true;
-                mBuyTipButton.setEnabled(false);
-                mBuyTipButton.setAlpha(0.5f);
-                changeWinPoints(-(mWinPoints / 2));
-            });
-        }
     }
 
 }

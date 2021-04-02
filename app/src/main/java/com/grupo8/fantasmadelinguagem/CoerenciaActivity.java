@@ -44,26 +44,26 @@ import java.util.stream.Collectors;
 
 public class CoerenciaActivity extends AppCompatActivity {
 
+    private final int[] mAllWinPointsPerRound = {0, 0, 0, 0, 0};
+    private final String[] mAllRoundsCorrectAswers = {"???", "???", "???", "???", "???"};
+    private int mRound = 0;
+    private int mPoints = 0;
+    private int mWinPoints = 0;
+    private boolean mTip1Buyed = false;
+    private boolean mTip2Buyed = false;
 
     private String[] mRoundTips;
     private String[] mAllRoundsPhrases;
     private String mRoundCorrectWord;
     private int randomWords = 0;
-    private int mRound = 0;
-    private int mPoints = 0;
-    private int mWinPoints = 0;
-    private boolean mMeaningBuyed = false;
-    private boolean mSynonymBuyed = false;
-    private final int[] mRoundPoints = {0, 0, 0, 0, 0};
-    private final String[] mRoundWords = {"???", "???", "???", "???", "???"};
 
-    private TagSphereView mWordsBall;
-    private ProgressBar mRoundProgress;
+    private TextView mTextWinPoints;
     private TextView mTextDifficult;
     private TextView mTextRound;
-    private TextView mTextWinPoints;
     private TextView mErroPenality;
     private LinearLayout mLoadingLayout;
+    private TagSphereView mWordsBall;
+    private ProgressBar mRoundProgress;
 
     private MediaPlayer mSucessSound;
     private MediaPlayer mFailSound;
@@ -120,8 +120,8 @@ public class CoerenciaActivity extends AppCompatActivity {
                 ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(500);
                 mPoints += mWinPoints;
                 mTextWinPoints.setText(String.valueOf(mPoints));
-                mRoundPoints[mRound - 1] = mWinPoints;
-                mRoundWords[mRound - 1] = mRoundCorrectWord;
+                mAllWinPointsPerRound[mRound - 1] = mWinPoints;
+                mAllRoundsCorrectAswers[mRound - 1] = mRoundCorrectWord;
                 mSucessSound.start();
                 startNextRound();
             } else {
@@ -162,8 +162,8 @@ public class CoerenciaActivity extends AppCompatActivity {
                 v.setEnabled(false);
                 v.setAlpha(0.5f);
                 mBuySound.start();
-                mMeaningBuyed = true;
-                updateTips();
+                mTip1Buyed = true;
+                showTip();
                 changeWinPoints((int) -(mWinPoints * 0.5));
             });
         });
@@ -180,8 +180,8 @@ public class CoerenciaActivity extends AppCompatActivity {
                 v.setEnabled(false);
                 v.setAlpha(0.5f);
                 mBuySound.start();
-                mSynonymBuyed = true;
-                updateTips();
+                mTip2Buyed = true;
+                showTip();
                 changeWinPoints((int) -(mWinPoints * 0.5));
             });
         });
@@ -263,6 +263,19 @@ public class CoerenciaActivity extends AppCompatActivity {
         });
     }
 
+
+    private void showTip() {
+        String newTips = String.format(Locale.getDefault(), "CATEGORIA: %s\nSIGNIFICADO: %s\nSINÔNIMOS: %s\n", mRoundTips[0], mTip1Buyed ? mRoundTips[1] : "???", mTip2Buyed ? mRoundTips[2] : "???");
+        new Handler().postDelayed(() -> ((TextView) findViewById(R.id.Coerencia_Tip)).setText(newTips), 200);
+        findViewById(R.id.Coerencia_Tip_Lay).startAnimation(AnimationUtils.loadAnimation(this, R.anim.layout_flip));
+    }
+
+    private void changeWinPoints(int change) {
+        mWinPoints += change;
+        ((TextView) findViewById(R.id.Coerencia_Win_Points)).setText(String.valueOf(mWinPoints));
+        findViewById(R.id.Coerencia_Win_Points).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
+    }
+
     private void startNextRound() {
         mRound++;
         if (mRound <= 5) {
@@ -293,8 +306,8 @@ public class CoerenciaActivity extends AppCompatActivity {
             mWordsBall.clearAllTags();
             mRoundProgress.setProgress(mRound);
             mTextRound.setText(String.format(Locale.getDefault(), "Nível %d", mRound));
-            mMeaningBuyed = false;
-            mSynonymBuyed = false;
+            mTip1Buyed = false;
+            mTip2Buyed = false;
 
             mErroPenality.setText(String.valueOf(-(10 * randomWords)));
 
@@ -321,7 +334,7 @@ public class CoerenciaActivity extends AppCompatActivity {
 
             mRoundTips = Arrays.copyOfRange(mAllRoundsPhrases[mRound - 1].split(";"), 2, mAllRoundsPhrases[mRound - 1].split(";").length);
 
-            updateTips();
+            showTip();
 
             mWordsBall.stopAutoRotation();
             mWordsBall.startAutoRotation(-1 + (new Random().nextFloat() * 2), -1 + (new Random().nextFloat() * 2));
@@ -329,57 +342,6 @@ public class CoerenciaActivity extends AppCompatActivity {
             endGame(true);
         }
 
-    }
-
-    private void updateTips() {
-        String newTips = String.format(Locale.getDefault(), "CATEGORIA: %s\nSIGNIFICADO: %s\nSINÔNIMOS: %s\n", mRoundTips[0], mMeaningBuyed ? mRoundTips[1] : "???", mSynonymBuyed ? mRoundTips[2] : "???");
-        new Handler().postDelayed(() -> ((TextView) findViewById(R.id.Coerencia_Tip)).setText(newTips), 200);
-        findViewById(R.id.Coerencia_Tip_Lay).startAnimation(AnimationUtils.loadAnimation(this, R.anim.layout_flip));
-    }
-
-    private void changeWinPoints(int change) {
-        mWinPoints += change;
-        ((TextView) findViewById(R.id.Coerencia_Win_Points)).setText(String.valueOf(mWinPoints));
-        findViewById(R.id.Coerencia_Win_Points).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
-    }
-
-    private void endGame(boolean win) {
-        mWordsBall.clearAllTags();
-        ((TextView) findViewById(R.id.Coerencia_Win_Points)).setText("-");
-
-        View alertContent = getLayoutInflater().inflate(R.layout.dialog_coerencia_end_game, findViewById(R.id.Coerencia_End_Root));
-
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Text)).setText(win ? "Você chegou até o final!" : "Não foi dessa vez!");
-
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word1)).setText(mRoundWords[0]);
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word2)).setText(mRoundWords[1]);
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word3)).setText(mRoundWords[2]);
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word4)).setText(mRoundWords[3]);
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word5)).setText(mRoundWords[4]);
-
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point1)).setText(String.valueOf(mRoundPoints[0]));
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point2)).setText(String.valueOf(mRoundPoints[1]));
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point3)).setText(String.valueOf(mRoundPoints[2]));
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point4)).setText(String.valueOf(mRoundPoints[3]));
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point5)).setText(String.valueOf(mRoundPoints[4]));
-
-        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Points)).setText(String.valueOf(mPoints));
-
-        if (mPoints > getSharedPreferences("records", MODE_PRIVATE).getInt("recordCoerencia", 0)) {
-            alertContent.findViewById(R.id.Coerencia_End_Record).setVisibility(View.VISIBLE);
-            getSharedPreferences("records", MODE_PRIVATE).edit().putInt("recordCoerencia", mPoints).apply();
-        }
-
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setView(alertContent);
-        Dialog dialog = alert.show();
-        dialog.setCancelable(false);
-
-        alertContent.findViewById(R.id.Coerencia_End_Close).setOnClickListener(v -> {
-            dialog.dismiss();
-            startActivity(new Intent(CoerenciaActivity.this, MenuActivity.class));
-            finish();
-        });
     }
 
     private void showHowToPlay() {
@@ -407,6 +369,45 @@ public class CoerenciaActivity extends AppCompatActivity {
 
         for (int index = 0; index < targetList.size(); index++)
             Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
+    }
+
+    private void endGame(boolean win) {
+        mWordsBall.clearAllTags();
+        ((TextView) findViewById(R.id.Coerencia_Win_Points)).setText("-");
+
+        View alertContent = getLayoutInflater().inflate(R.layout.dialog_coerencia_end_game, findViewById(R.id.Coerencia_End_Root));
+
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Text)).setText(win ? "Você chegou até o final!" : "Não foi dessa vez!");
+
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word1)).setText(mAllRoundsCorrectAswers[0]);
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word2)).setText(mAllRoundsCorrectAswers[1]);
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word3)).setText(mAllRoundsCorrectAswers[2]);
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word4)).setText(mAllRoundsCorrectAswers[3]);
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Word5)).setText(mAllRoundsCorrectAswers[4]);
+
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point1)).setText(String.valueOf(mAllWinPointsPerRound[0]));
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point2)).setText(String.valueOf(mAllWinPointsPerRound[1]));
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point3)).setText(String.valueOf(mAllWinPointsPerRound[2]));
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point4)).setText(String.valueOf(mAllWinPointsPerRound[3]));
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Point5)).setText(String.valueOf(mAllWinPointsPerRound[4]));
+
+        ((TextView) alertContent.findViewById(R.id.Coerencia_End_Points)).setText(String.valueOf(mPoints));
+
+        if (mPoints > getSharedPreferences("records", MODE_PRIVATE).getInt("recordCoerencia", 0)) {
+            alertContent.findViewById(R.id.Coerencia_End_Record).setVisibility(View.VISIBLE);
+            getSharedPreferences("records", MODE_PRIVATE).edit().putInt("recordCoerencia", mPoints).apply();
+        }
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setView(alertContent);
+        Dialog dialog = alert.show();
+        dialog.setCancelable(false);
+
+        alertContent.findViewById(R.id.Coerencia_End_Close).setOnClickListener(v -> {
+            dialog.dismiss();
+            startActivity(new Intent(CoerenciaActivity.this, MenuActivity.class));
+            finish();
+        });
     }
 
 }

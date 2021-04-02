@@ -132,6 +132,8 @@ public class MenuActivity extends AppCompatActivity {
         View alertContent = getLayoutInflater().inflate(R.layout.dialog_splash_info, findViewById(R.id.Info_Root));
         alertContent.findViewById(R.id.Info_ButtonGithub).setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/firminoveras/FantasmaDeLinguagem"))));
         alertContent.findViewById(R.id.Info_LicenceGoogle).setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.apache.org/licenses/LICENSE-2.0.txt"))));
+        alertContent.findViewById(R.id.Info_LicenceSpotlight).setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.apache.org/licenses/LICENSE-2.0.txt"))));
+        alertContent.findViewById(R.id.Info_LicenceTagSphere).setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.apache.org/licenses/LICENSE-2.0.txt"))));
 
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setView(alertContent);

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Acentuacao_Dica_Root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/green"
+    android:background="@color/foreground"
     android:orientation="vertical"
     android:padding="12dp"
     tools:ignore="ContentDescription,HardcodedText,Overdraw">
@@ -14,24 +14,25 @@
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:src="@drawable/ic_book"
-        app:tint="@color/white"/>
+        app:tint="@color/white" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginBottom="6dp"
+        android:gravity="center"
         android:text="Dica"
-        android:textStyle="bold"
         android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Acentuacao_Dica_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_marginBottom="12dp"
         android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 

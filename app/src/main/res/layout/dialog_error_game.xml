@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Acentuacao_Dica_Root"
+    android:id="@+id/Error_Root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/foreground"
+    android:background="@color/background"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:ignore="ContentDescription,HardcodedText,Overdraw">
+    tools:ignore="ButtonStyle,ContentDescription,HardcodedText,Overdraw">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="42dp"
-        android:src="@drawable/ic_book"
+        android:src="@drawable/ic_error"
         app:tint="@color/white" />
 
     <TextView
@@ -21,29 +21,34 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:gravity="center"
-        android:text="Dica"
+        android:text="Algo deu Errado :("
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/Acentuacao_Dica_Text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:fontFamily="sans-serif-smallcaps"
-        android:justificationMode="inter_word"
+        android:gravity="center"
+        android:text="O jogo não foi iniciado corretamente. Cheque sua conexão com a internet ou tente novamente mais tarde."
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/Acentuacao_Dica_Referencia"
+
+    <Button
+        android:id="@+id/Error_Confirm"
+        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_red_button_ripple"
         android:fontFamily="sans-serif-smallcaps"
-        android:gravity="end"
+        android:gravity="center"
+        android:text="Fechar"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="12sp" />
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

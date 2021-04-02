@@ -22,7 +22,6 @@
         <item>Uma pessoa que nunca :cometeu: um erro nunca tentou nada novo;Albert Einstein;verbo;levar a efeito, fazer, executar.;encarregar, encomendar,delegar.</item>
         <item>Descobri que, quanto mais eu trabalho, mais :sorte: pareço ter.;Thomas Jefferson;substantivo feminino;acaso ou coincidência feliz; contingência favorável.;destino, aragem, aventura.</item>
         <item>Não há :atalhos: para nenhum destino onde se vale a pena chegar.;Beverly Sills;substantivo masculino;maneira de se conseguir alguma coisa em menos tempo ou com menos esforço do que por meios normais.;trilha, caminho.</item>
-
     </string-array>
 
     <string-array name="coerencia_sentences_medium">
@@ -49,8 +48,6 @@
         <item>Ao fim do dia, podemos :aguentar: muito mais do que pensamos que podemos;Frida Kahlo;verbo;sustentar ou suportar;suportar, arcar, aturar</item>
         <item>Não há saber mais ou saber menos: há :saberes: diferentes;Paulo Freire;substantivo masculino;conjunto de conhecimentos sobre algo ou alguém;conseguires, poderes, seres capaz.</item>
         <item>Você não crescerá a não ser que tente algo além :daquilo: que já domina;Ronald Osborn;contração;de algo a que se referiu num momento bastante anterior ao momento da fala.;daquela, daquele.</item>
-
-
     </string-array>
 
     <string-array name="coerencia_sentences_very_hard">

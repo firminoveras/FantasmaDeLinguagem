@@ -88,4 +88,58 @@
         <item>susceptível</item>
     </string-array>
 
+    <string-array name="acentuacao_tip_agudo">
+        <item>Não se usará o acento agudo nos ditongos abertos "ei" e "oi". Ex: ideia, jiboia e heroico. Exceção: Permanece nas palavras oxítonas e nos monossílabos.#ALBERT, Hort. Coletânea de Língua Portuguêsa. Clube dos Autores, 2018.</item>
+        <item>Não se usará o acento agudo […] Nas vogais "I" e "U" antecedidas por ditongo. Ex.: feiura, cauila e baiuca.#ALBERT, Hort. Coletânea de Língua Portuguêsa. Clube dos Autores, 2018.</item>
+        <item>Não se usará o acento agudo […] Na vogal "U" tônica dos verbos: apaziguar, averiguar e arguir.#ALBERT, Hort. Coletânea de Língua Portuguêsa. Clube dos Autores, 2018.</item>
+        <item>São acentiados ditongos abertos: -éi(s), -éi(s), -ói(s)#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>As palavras oxítonas são aquelas em que a última sílaba é tônica (mais forte). Elas podem ser acentuadas com o acento agudo e com o acento circunflexo.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Recebem acento agudo as vogais tônicas grafadas com -i e -u, quando precedidas de ditongo na posição final ou seguidas de -s.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Recebe acento agudo a vogal tônica grafada -i das palavras oxítonas terminadas em -r dos verbos terminados em -air e -uir, quando combinadas com -lo(s), -la(s) considerando a assimilação e perda do -r nas palavras.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Não recebem acento agudo as vogais tônicas das palavras paroxítonas nas formas rizotônicas de alguns verbos.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Não recebem acento agudo os ditongos tônicos grafados -iu e -ui, quando precedidos de vogal.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Não é utilizado acento agudo nas vogais tônicas grafadas em -i e -u das palavras paroxítonas quando precedidas de ditongo.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Recebem acento agudo as palavras proparoxítonas que apresentam na sílaba tônica as vogais abertas grafadas -a, -e, -i, -o e -u começando com ditongo oral ou vogal aberta.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+
+    </string-array>
+
+    <string-array name="acentuacao_tip_circunflexo">
+        <item>O acento circunflexo torna o som mais fechado […] Só o "a", o "e" e o "o" podem receber o acento circunflexo.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>Não se usará o acento circunflexo nos ditongos "oo" e "ee".#ALBERT, Hort. Coletânea de Língua Portuguêsa. Clube dos Autores, 2018.</item>
+        <item>Não se usará o acento circunflexo […] nos hiatos "eem" das terceiras pessoas do plurão dos verbos: crer, dar, ler e ver.#ALBERT, Hort. Coletânea de Língua Portuguêsa. Clube dos Autores, 2018.</item>
+        <item>O acento circunflexo é geralmente usado nas vogais fechadas /â/, /ê/ e /ô/ e nas vogais nasais que aparecem nos dígrafos “âm”, “ân”, “êm”, “ên’, “ôm” e “ôn”.#DIANA, Daniela. Acento Circunflexo. disponível em todamateria.com.br/acento-circunflexo.</item>
+        <item>Algumas palavras escritas com e sem acento circunflexo são utilizadas em contextos diferentes.#DIANA, Daniela. Acento Circunflexo. disponível em todamateria.com.br/acento-circunflexo.</item>
+        <item>As palavras oxítonas são aquelas em que a última sílaba é tônica (mais forte). Elas podem ser acentuadas com o acento agudo e com o acento circunflexo.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Recebem acento circunflexo as palavras proparoxítonas que apresentam na sílaba tônica vogal fechada ou ditongo com a vogal básica fechada e as chamadas proparoxítonas aparentes.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+        <item>Recebem acento circunflexo as palavras proparoxítonas, reais ou aparentes, quando as vogais tônicas são grafadas e/ou estão em final de sílaba e são seguidas das consoantes nasais grafadas -m ou -n obedecendo ao timbre.#DIANA, Daniela. Acentuação Gráfica. disponível em todamateria.com.br/acento-acentuacao-grafica.</item>
+    </string-array>
+
+    <string-array name="acentuacao_tip_til">
+        <item>Emprega-se o til para indicar a nasalização de vogais.#CABRAL, Zélio. Apostila de Português. Editora Saraiva, 2016.</item>
+        <item>O til […], na língua portuguesa, apenas pode acompanhar as vogais a e o.#FERNANDES, Márcia. Uso do Til. Disponível em todamateria.com.br/uso-do-til.</item>
+        <item>O til é um sinal gráfico de nasalização. Na Língua Portuguesa, ele é utilizado apenas sobre as letras a e o para formar os ditongos nasais -ãe, -ão, -ãi e -õe ou na vogal nasal ã.#BORGES, Noslen. TIL É ACENTO?. Disponível em professornoslen.com.br/blog/til-e-acento, 2020.</item>
+        <item>Em geral, o til recai sobre a sílaba tônica das palavras, como em “mãe”, “coração”, “cãibra”, “leões” e “maçã”. .#BORGES, Noslen. TIL É ACENTO?. Disponível em professornoslen.com.br/blog/til-e-acento, 2020.</item>
+        <item>O til […] não é eliminado da palavra quando nela são acrescentados os sufixos -zinho ou -mente – “mãezinha”, “balõezinhos”, “cristãmente”, “sãmente”.  .#BORGES, Noslen. TIL É ACENTO?. Disponível em professornoslen.com.br/blog/til-e-acento, 2020.</item>
+    </string-array>
+
+    <string-array name="acentuacao_tip_crase">
+        <item>(A crase) ocorre quando a preposição "a" contrai-se com um artigo ou pronome iniciados pela letra "A".#APARECIDO, Claudinor. Crase Sem Crise. Clube dos Autores, 2011.</item>
+        <item>Com relação aos artigos (apenas a eles), portando: A crase existe apenas para os feminionos (claros ou subtendidos): Faltou à reunião.#APARECIDO, Claudinor. Crase Sem Crise. Clube dos Autores, 2011.</item>
+        <item>A crase será utilizada diante de numerias que indiquem hora ou quando se subtende a preposição "até".#APARECIDO, Claudinor. Crase Sem Crise. Clube dos Autores, 2011.</item>
+        <item>Aparentemente substantivos masculinos não poderiam receber diretamente a crase, porque a fusão seria com os artigos "o" e "os", o que resultaria nas contrações "ao" e "aos", respectivamente.#APARECIDO, Claudinor. Crase Sem Crise. Clube dos Autores, 2011.</item>
+        <item>A crase é a fusão ou contração da preposição "a" com o pronome definido feminino "a" ou "as", ou ainda com os pronomes demonstrativos ou relativos iniciados pela vogal "a".#APARECIDO, Claudinor. Crase Sem Crise. Clube dos Autores, 2011.</item>
+    </string-array>
+
+    <string-array name="acentuacao_tip_generic">
+        <item>Sabemos que toda palavra da Língua portuguesa de duas ou mais sílabas possui uma sílaba tônica. […] Você constatou que a tonicidade recai sobre a sílaba inicial em arte, a final em gentil, a inicial em táxi e a final em mocotó.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>Acentuam-se as palavras monossílabas tônicas terminadas em a, e, o, seguidas ou não de s.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>Acentuam-se as palavras oxítonas terminadas em a, e, o, seguidas ou não de s, em, ens.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>Não se acentuam as oxítonas terminadas em i e u, e em consoantes nem os infinitivos em i, seguidos de pronomes oblíquos lo, la, los e las.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>O Acento agudo torna o som mais aberto. Todas as vogais podem receber o acento agudo.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>O acento grave sinalizaa a contratçãao da preposição "a" com o artigo "a", ou da preposição "a" com os pronomes demonstativos.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>Todas as proparoxítonas são acentuadas.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+        <item>São acentuados todos os "i" hiatos.#MONTELLA, Maura. Dicas De Português. Clube de Autores, 2010.</item>
+    </string-array>
+
+
 </resources>

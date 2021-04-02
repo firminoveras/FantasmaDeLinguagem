@@ -71,6 +71,28 @@
         android:text="@string/info_icons" />
 
     <TextView
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_repos"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Info_LicenceSpotlight"
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/info_spotlight" />
+
+    <TextView
+        android:id="@+id/Info_LicenceTagSphere"
+        style="@style/justified_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="@string/info_tagsphere" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"

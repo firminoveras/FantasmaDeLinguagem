@@ -40,22 +40,23 @@ import java.util.stream.Collectors;
 
 public class PontuacaoActivity extends AppCompatActivity {
 
+    private final String[] mAllRoundsCorrectAswersReference = {"???", "???", "???", "???", "???"};
+    private final String[] mAllRoundsCorrectAswers = {"???", "???", "???", "???", "???"};
+    private final int[] mAllWinPointsPerRound = {0, 0, 0, 0, 0};
+    private int mRound = 0;
+    private int mPoints = 0;
+    private int mWinPoints = 0;
+    private boolean mTipBuyed = false;
+
+    private String[] mAllRoundsCorrectPhrases;
+    private int mCursorIndex = 0;
+
     private TextView mTextDifficult;
     private TextView mTextPhrase;
     private TextView mTextAuthor;
     private TextView mTextPoints;
     private TextView mInsertButton;
     private LinearLayout mLoadingLayout;
-
-    private String[] mAllRoundsCorrectPhrases;
-    private final String[] mAllEndRoundsCorrectPhrases = {"???", "???", "???", "???", "???"};
-    private final String[] mAllEndRoundsAswerPhrases = {"???", "???", "???", "???", "???"};
-    private final int[] mAllWinPointsPerRound = {0, 0, 0, 0, 0};
-    private int mRound = 0;
-    private int mCursorIndex = 0;
-    private int mWinPoints = 0;
-    private int mPoints = 0;
-    private boolean mTipBuyed = false;
 
     private MediaPlayer mSucessSound;
     private MediaPlayer mFailSound;
@@ -117,15 +118,15 @@ public class PontuacaoActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.Pontuacao_Tip_Button).setOnClickListener(v -> showDialogTip());
+        findViewById(R.id.Pontuacao_Tip_Button).setOnClickListener(v -> showTip());
 
         findViewById(R.id.Pontuacao_HowPlay).setOnClickListener(v -> showHowToPlay());
 
         findViewById(R.id.Pontuacao_Button_Clear).setOnClickListener(v -> clearPontuacoes());
 
         findViewById(R.id.Pontuacao_Button_Confirm).setOnClickListener(v -> {
-            mAllEndRoundsCorrectPhrases[mRound - 1] = mAllRoundsCorrectPhrases[mRound - 1].split("#")[0];
-            mAllEndRoundsAswerPhrases[mRound - 1] = mTextPhrase.getText().toString().trim();
+            mAllRoundsCorrectAswersReference[mRound - 1] = mAllRoundsCorrectPhrases[mRound - 1].split("#")[0];
+            mAllRoundsCorrectAswers[mRound - 1] = mTextPhrase.getText().toString().trim();
             if (mAllRoundsCorrectPhrases[mRound - 1].split("#")[0].trim().equals(mTextPhrase.getText().toString().trim())) {
                 mSucessSound.start();
                 mPoints += mWinPoints;
@@ -174,7 +175,7 @@ public class PontuacaoActivity extends AppCompatActivity {
             anim.setDuration(1000);
             anim.start();
         }, 1000);
-        new Handler().postDelayed(() ->  getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background_white, null)), 1500);
+        new Handler().postDelayed(() -> getWindow().setBackgroundDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.splash_background_white, null)), 1500);
     }
 
     @Override
@@ -216,6 +217,7 @@ public class PontuacaoActivity extends AppCompatActivity {
         });
     }
 
+
     private void clearPontuacoes() {
         String sentence = mAllRoundsCorrectPhrases[mRound - 1].split("#")[0];
         sentence = sentence.replace(".", "");
@@ -228,53 +230,6 @@ public class PontuacaoActivity extends AppCompatActivity {
         mTextPhrase.setText(sentence);
         mCursorIndex = 0;
         cursorNextWord();
-    }
-
-    private void showDialogTip() {
-        if (!mTipBuyed) {
-            View alertContent = getLayoutInflater().inflate(R.layout.dialog_buy_tip_confirm, findViewById(R.id.BuyConfirm_Root));
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setView(alertContent);
-            Dialog dialog = alert.show();
-            dialog.setCancelable(false);
-            alertContent.findViewById(R.id.BuyConfirm_No).setOnClickListener(v -> dialog.dismiss());
-            alertContent.findViewById(R.id.BuyConfirm_Yes).setOnClickListener(v -> {
-                mBuySound.start();
-                dialog.dismiss();
-                String[] listTips;
-                switch (mInsertButton.getText().charAt(0)) {
-                    default:
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_ponto);
-                        break;
-                    case ',':
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_virgula);
-                        break;
-                    case ':':
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_doispontos);
-                        break;
-                    case '!':
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_exclamacao);
-                        break;
-                    case ';':
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_pontoevirgula);
-                        break;
-                    case '?':
-                        listTips = getResources().getStringArray(R.array.pontuacao_dica_interrogacao);
-                        break;
-                }
-
-                String[] tip = listTips[new Random().nextInt(listTips.length-1)].split("#");
-
-                View tipAlertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
-                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText(tip[0]);
-                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText(tip[1]);
-                AlertDialog.Builder tipAlert = new AlertDialog.Builder(this);
-                tipAlert.setView(tipAlertContent);
-                tipAlert.show();
-                mTipBuyed = true;
-                changeWinPoints(-(mWinPoints / 2));
-            });
-        }
     }
 
     private void cursorNextWord() {
@@ -303,6 +258,74 @@ public class PontuacaoActivity extends AppCompatActivity {
         }
     }
 
+    private void setInsertChar(String character, String name, ImageView selectedImageView) {
+        LinearLayout selectLayout = findViewById(R.id.Pontuacao_Select_Layout);
+        for (int index = 0; index < selectLayout.getChildCount(); index++) {
+            selectLayout.getChildAt(index).setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bg_double_circle_ripple_unselected, null));
+            ((ImageView) selectLayout.getChildAt(index)).setImageTintList(ColorStateList.valueOf(Color.argb(255, 150, 150, 150)));
+        }
+
+        selectedImageView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bg_double_circle_ripple_selected, null));
+        selectedImageView.setImageTintList(ColorStateList.valueOf(getColor(R.color.background)));
+
+        mInsertButton.setText(character);
+        mInsertButton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
+        ((TextView) findViewById(R.id.Pontuacao_Insert_Button_Description)).setText(name);
+    }
+
+    private void showTip() {
+        if (!mTipBuyed) {
+            View alertContent = getLayoutInflater().inflate(R.layout.dialog_buy_tip_confirm, findViewById(R.id.BuyConfirm_Root));
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setView(alertContent);
+            Dialog dialog = alert.show();
+            dialog.setCancelable(false);
+            alertContent.findViewById(R.id.BuyConfirm_No).setOnClickListener(v -> dialog.dismiss());
+            alertContent.findViewById(R.id.BuyConfirm_Yes).setOnClickListener(v -> {
+                mBuySound.start();
+                dialog.dismiss();
+                String[] listTips;
+                switch (mInsertButton.getText().charAt(0)) {
+                    default:
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_ponto);
+                        break;
+                    case ',':
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_virgula);
+                        break;
+                    case ':':
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_doispontos);
+                        break;
+                    case '!':
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_exclamacao);
+                        break;
+                    case ';':
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_pontoevirgula);
+                        break;
+                    case '?':
+                        listTips = getResources().getStringArray(R.array.pontuacao_tip_interrogacao);
+                        break;
+                }
+
+                String[] tip = listTips[new Random().nextInt(listTips.length - 1)].split("#");
+
+                View tipAlertContent = getLayoutInflater().inflate(R.layout.dialog_acentuacao_dica, findViewById(R.id.Acentuacao_Dica_Root));
+                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Text)).setText(tip[0]);
+                ((TextView) tipAlertContent.findViewById(R.id.Acentuacao_Dica_Referencia)).setText(tip[1]);
+                AlertDialog.Builder tipAlert = new AlertDialog.Builder(this);
+                tipAlert.setView(tipAlertContent);
+                tipAlert.show();
+                mTipBuyed = true;
+                changeWinPoints(-(mWinPoints / 2));
+            });
+        }
+    }
+
+    private void changeWinPoints(int change) {
+        mWinPoints += change;
+        ((TextView) findViewById(R.id.Pontuacao_Win_Points)).setText(String.valueOf(mWinPoints));
+        findViewById(R.id.Pontuacao_Win_Points).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
+    }
+
     private void startNextRound() {
         mRound++;
         if (mRound <= 5) {
@@ -321,8 +344,8 @@ public class PontuacaoActivity extends AppCompatActivity {
                 mTextDifficult.setText(R.string.coerencia_phrase_very_hard);
             }
 
-            ((ProgressBar)findViewById(R.id.Pontuacao_Progress_Niveis)).setProgress(mRound);
-            ((TextView)findViewById(R.id.Pontuacao_Text_Nivel)).setText(String.format(Locale.getDefault(), "Nível %d", mRound));
+            ((ProgressBar) findViewById(R.id.Pontuacao_Progress_Niveis)).setProgress(mRound);
+            ((TextView) findViewById(R.id.Pontuacao_Text_Nivel)).setText(String.format(Locale.getDefault(), "Nível %d", mRound));
 
             clearPontuacoes();
             mTextAuthor.setText(mAllRoundsCorrectPhrases[mRound - 1].split("#")[1]);
@@ -333,25 +356,33 @@ public class PontuacaoActivity extends AppCompatActivity {
         }
     }
 
-    private void changeWinPoints(int change) {
-        mWinPoints += change;
-        ((TextView) findViewById(R.id.Pontuacao_Win_Points)).setText(String.valueOf(mWinPoints));
-        findViewById(R.id.Pontuacao_Win_Points).startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
-    }
+    private void showHowToPlay() {
+        String[] helpStrings = getResources().getStringArray(R.array.tutorial_pontuacao);
+        List<Target> targetList = new ArrayList<>();
 
-    private void setInsertChar(String character, String name, ImageView selectedImageView) {
-        LinearLayout selectLayout = findViewById(R.id.Pontuacao_Select_Layout);
-        for (int index = 0; index < selectLayout.getChildCount(); index++) {
-            selectLayout.getChildAt(index).setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bg_double_circle_ripple_unselected, null));
-            ((ImageView) selectLayout.getChildAt(index)).setImageTintList(ColorStateList.valueOf(Color.argb(255, 150, 150, 150)));
-        }
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Text_Nivel), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_MainText), 220f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Left_Back1), 180f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Right_Back1), 180f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Pontuacoes), 140f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Insert_Back2), 180f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Clear), 120f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Tip_Button), 120f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Confirm), 120f, helpStrings[8].split("#")[0], helpStrings[8].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
+        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Win_Points), 100f, helpStrings[9].split("#")[0], helpStrings[9].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
 
-        selectedImageView.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.bg_double_circle_ripple_selected, null));
-        selectedImageView.setImageTintList(ColorStateList.valueOf(getColor(R.color.background)));
+        Spotlight spotlight = new Spotlight.Builder(this)
+                .setTargets(targetList)
+                .setBackgroundColor(getColor(R.color.spotlightBackground))
+                .setDuration(1000L)
+                .setAnimation(new DecelerateInterpolator(2f))
+                .setContainer(findViewById(R.id.Pontuacao_Root))
+                .build();
 
-        mInsertButton.setText(character);
-        mInsertButton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.acentuacao_key_pop));
-        ((TextView) findViewById(R.id.Pontuacao_Insert_Button_Description)).setText(name);
+        spotlight.start();
+
+        for (int index = 0; index < targetList.size(); index++)
+            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
     }
 
     private void endGame(boolean win) {
@@ -372,8 +403,8 @@ public class PontuacaoActivity extends AppCompatActivity {
         endGameTabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextOriginal)).setText(mAllEndRoundsCorrectPhrases[tab.getPosition()]);
-                ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextAnswer)).setText(mAllEndRoundsAswerPhrases[tab.getPosition()]);
+                ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextOriginal)).setText(mAllRoundsCorrectAswersReference[tab.getPosition()]);
+                ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextAnswer)).setText(mAllRoundsCorrectAswers[tab.getPosition()]);
                 ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TabPoints)).setText(String.format(Locale.getDefault(), "%d Pontos", mAllWinPointsPerRound[tab.getPosition()]));
             }
 
@@ -387,8 +418,8 @@ public class PontuacaoActivity extends AppCompatActivity {
         });
 
         endGameTabs.selectTab(endGameTabs.getTabAt(0), true);
-        ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextOriginal)).setText(mAllEndRoundsCorrectPhrases[0]);
-        ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextAnswer)).setText(mAllEndRoundsAswerPhrases[0]);
+        ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextOriginal)).setText(mAllRoundsCorrectAswersReference[0]);
+        ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TextAnswer)).setText(mAllRoundsCorrectAswers[0]);
         ((TextView) alertContent.findViewById(R.id.Pontuacao_End_TabPoints)).setText(String.format(Locale.getDefault(), "%d Pontos", mAllWinPointsPerRound[0]));
 
         ((TextView) alertContent.findViewById(R.id.Pontuacao_End_Points)).setText(String.valueOf(mPoints));
@@ -409,35 +440,6 @@ public class PontuacaoActivity extends AppCompatActivity {
             finish();
         });
 
-    }
-
-    private void showHowToPlay() {
-        String[] helpStrings = getResources().getStringArray(R.array.tutorial_pontuacao);
-        List<Target> targetList = new ArrayList<>();
-
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Text_Nivel), 120f, helpStrings[0].split("#")[0], helpStrings[0].split("#")[1], R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_MainText), 220f, helpStrings[1].split("#")[0], helpStrings[1].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Left_Back1), 180f, helpStrings[2].split("#")[0], helpStrings[2].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Right_Back1), 180f, helpStrings[3].split("#")[0], helpStrings[3].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Pontuacoes), 140f, helpStrings[4].split("#")[0], helpStrings[4].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Insert_Back2), 180f, helpStrings[5].split("#")[0], helpStrings[5].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Clear), 120f, helpStrings[6].split("#")[0], helpStrings[6].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Tip_Button), 120f, helpStrings[7].split("#")[0], helpStrings[7].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Button_Confirm), 120f, helpStrings[8].split("#")[0], helpStrings[8].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-        targetList.add(new TargetBuilder(this, findViewById(R.id.Pontuacao_Win_Points), 100f, helpStrings[9].split("#")[0], helpStrings[9].split("#")[1],R.layout.tutorial_pontuacao).getTarget());
-
-        Spotlight spotlight = new Spotlight.Builder(this)
-                .setTargets(targetList)
-                .setBackgroundColor(getColor(R.color.spotlightBackground))
-                .setDuration(1000L)
-                .setAnimation(new DecelerateInterpolator(2f))
-                .setContainer(findViewById(R.id.Pontuacao_Root))
-                .build();
-
-        spotlight.start();
-
-        for (int index = 0; index < targetList.size(); index++)
-            Objects.requireNonNull(targetList.get(index).getOverlay()).findViewById(R.id.Acentuacao_Tutorial_Next).setOnClickListener(v -> spotlight.next());
     }
 
 }
